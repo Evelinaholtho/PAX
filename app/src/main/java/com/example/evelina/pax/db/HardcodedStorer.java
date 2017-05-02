@@ -23,14 +23,29 @@ public class HardcodedStorer implements Storer {
     private static List<Room> roomList;
     private static List<Building> buildingList;
 
-    static {
-        // Populate list of pax
+    public HardcodedStorer(Context context){
+        Log.d(LOG_TAG, "HardcodedStorer()");
+
+        // Populate db with data.
+        populateBuildingList();
+        populateRoomList();
+        populatePaxList();
+    }
+
+    // Populate list of pax
+    private void populatePaxList() {
+        Log.d(LOG_TAG, "populatePaxList()");
+
         paxList = new ArrayList<>();
         paxList.add(new Pax(1, 1, Calendar.getInstance(), 8));
         paxList.add(new Pax(1, 1, Calendar.getInstance(), 10));
         paxList.add(new Pax(2, 2, Calendar.getInstance(), 8));
+    }
 
-        // Populate list of rooms
+    // Populate list of rooms
+    private void populateRoomList() {
+        Log.d(LOG_TAG, "populateRoomList()");
+
         roomList = new ArrayList<>();
         roomList.add(new Room(1, "Tetris"));
         roomList.add(new Room(1, "Zelda"));
@@ -46,15 +61,15 @@ public class HardcodedStorer implements Storer {
         roomList.add(new Room(2, "Kullagret"));
         roomList.add(new Room(2, "Skiftnyckeln"));
         roomList.add(new Room(2, "Trepunktsbältet"));
+    }
 
-        // Populate list of buildings
+    // Populate list of buildings
+    private void populateBuildingList() {
+        Log.d(LOG_TAG, "populateRoomList()");
+
         buildingList = new ArrayList<>();
         buildingList.add(new Building(1, "Patricia"));
         buildingList.add(new Building(2, "Kuggen"));
-    }
-
-    public HardcodedStorer(Context context){
-        Log.d(LOG_TAG, "HardcodedStorer()");
     }
 
     @Override
@@ -64,8 +79,10 @@ public class HardcodedStorer implements Storer {
     }
 
     @Override
-    public void getBuildingRooms(String buildingName) {
+    public List<Room> getBuildingRooms(int buildingID) {
         Log.d(LOG_TAG, "getBuildingRooms()");
+
+
     }
 
     @Override
