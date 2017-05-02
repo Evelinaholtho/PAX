@@ -49,7 +49,8 @@ public class HardcodedStorer implements Storer {
 
         // Populate list of buildings
         buildingList = new ArrayList<>();
-        buildingList.add(new Building());
+        buildingList.add(new Building(1, "Patricia"));
+        buildingList.add(new Building(2, "Kuggen"));
     }
 
     public HardcodedStorer(Context context){

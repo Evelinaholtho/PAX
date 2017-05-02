@@ -8,7 +8,9 @@ public class Building {
     private int buildingID;
     private String buildingName;
 
-    public Building (String buildingName){
+    public Building (int buildingID, String buildingName){
 
+        this.buildingID = buildingID;
+        this.buildingName = buildingName;
     }
 }
