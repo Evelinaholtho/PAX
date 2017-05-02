@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.evelina.pax.domain.Pax;
+import com.example.evelina.pax.domain.Room;
 import com.example.evelina.pax.domain.StoreException;
 import com.example.evelina.pax.domain.Storer;
 
@@ -19,7 +20,7 @@ public class DBStorer implements Storer {
     // Database fields
     private SQLiteDatabase database;
     private StoreHelper dbHelper;
-    private String[] allColumns = { StoreHelper.COLUMN_ID,
+    private String[] allColumns = { StoreHelper.COLUMN_PAX_ID,
             StoreHelper.COLUMN_PAX_NAME};
 
     public DBStorer(Context context){
@@ -28,7 +29,7 @@ public class DBStorer implements Storer {
     }
 
     @Override
-    public List<Pax> getAllPax() {
+    public List<Pax> getAllPax() throws NullPointerException {
         Log.d(LOG_TAG, "getAllPax()");
         return null;
     }
@@ -46,21 +47,20 @@ public class DBStorer implements Storer {
     }
 
     @Override
-    public void getBuildingRooms(String buildingName) {
+    public List<Room> getBuildingRooms(int buildingID) throws NullPointerException {
         Log.d(LOG_TAG, "getBuildingRooms()");
-
+        return null;
     }
 
     @Override
-    public void getAllRooms() {
+    public List<Room> getAllRooms() throws NullPointerException {
         Log.d(LOG_TAG, "getAllRooms()");
-
+        return null;
     }
 
     @Override
-    public void getRoom(String roomName) {
-        Log.d(LOG_TAG, "getRoom()");
-
+    public Room getRoom(String roomName) throws NullPointerException {
+        return null;
     }
 
     @Override
@@ -78,11 +78,4 @@ public class DBStorer implements Storer {
         Log.d(LOG_TAG, "close()");
         dbHelper.close();
     }
-/*
-    public Pax createPax(Pax pax) {
-        Log.d(LOG_TAG, "createPax()");
-        ContentValues values =  new ContentValues();
-        values.put(PaxStoreHelper.COLUMN_PAX_NAME, pax.name());
-    }
-    */
 }
