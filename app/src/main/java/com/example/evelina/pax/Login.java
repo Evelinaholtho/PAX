@@ -6,6 +6,7 @@ import android.os.Bundle;
 // Kommentar!
 
 // En till!
+//Gillar inte fiskmåsar
 
 public class Login extends AppCompatActivity {
 
