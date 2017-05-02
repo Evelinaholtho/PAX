@@ -9,7 +9,7 @@
     <string name="action_sign_in_short">Logga in</string>
     <string name="error_invalid_email">Felaktig E-postadress</string>
     <string name="error_invalid_password">Det angivna lösenordet är för kort</string>
-    <string name="error_incorrect_password">Det angivna lösenordet är felkatigt</string>
+    <string name="error_incorrect_password">Det angivna lösenordet är felaktigt</string>
     <string name="error_field_required">Detta fält är obilgatoriskt</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."  </string>

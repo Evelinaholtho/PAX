@@ -78,25 +78,35 @@ public class HardcodedStorer implements Storer {
         return paxList;
     }
 
+    // Get list of all rooms in building of specified building ID.
     @Override
     public List<Room> getBuildingRooms(int buildingID) {
         Log.d(LOG_TAG, "getBuildingRooms()");
-
-
+        List<Room> buildingRoomList = new ArrayList<>();
+        for(Room r : roomList)
+            if(r.getBuildingID() == buildingID)
+                buildingRoomList.add(r);
+        return buildingRoomList;
     }
 
+    // Get list of all rooms.
     @Override
-    public void getAllRooms() {
+    public List<Room> getAllRooms() {
         Log.d(LOG_TAG, "getAllRooms()");
-
+        return roomList;
     }
 
+    // Get room object of specified name.
     @Override
-    public void getRoom(String roomName) {
+    public Room getRoom(String roomName) {
         Log.d(LOG_TAG, "getRoom()");
-
+        for(Room r : roomList)
+            if(r.getRoomName().equalsIgnoreCase(roomName))
+                return r;
+        return null;
     }
 
+    // Store pax in paxlist.
     @Override
     public void storePax(Pax p) {
         Log.d(LOG_TAG, "storePax()");

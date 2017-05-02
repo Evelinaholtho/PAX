@@ -5,12 +5,12 @@ import java.util.List;
 // Interface telling extending classes which methods to implement.
 public interface Storer {
 
-    List<Pax> getAllPax();
+    List<Pax> getAllPax() throws NullPointerException;
     void storePax (Pax p);
     void deletePax (Pax p);
-    void getBuildingRooms(String buildingName);
-    void getAllRooms();
-    void getRoom(String roomName);
+    List<Room> getBuildingRooms(int buildingID) throws NullPointerException;
+    List<Room> getAllRooms() throws NullPointerException;
+    Room getRoom(String roomName) throws NullPointerException;
     void open() throws StoreException;
     void close() throws StoreException;
 }
