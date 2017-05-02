@@ -7,5 +7,6 @@
         <color name="colorWhite">#ffff</color>
         <color name="colorBlack">#000</color>
         <color name="colorList">#D21D2971</color>
+        <color name="colorMenu">#fafafa</color>
     </resources>
 
