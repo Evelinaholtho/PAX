@@ -19,4 +19,7 @@
     <string name="title_search">Sök</string>
     <string name="title_group">Grupper</string>
     <string name="title_settings">Inställningar</string>
+
+    <!-- Strings related to mp activity -->
+    <string name="title_overmap">Rum i närheten</string>
 </resources>
