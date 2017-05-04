@@ -35,7 +35,6 @@
         android:id="@+id/imageView3"
         android:layout_width="363dp"
         android:layout_height="340dp"
-        app:srcCompat="@drawable/Googlemap2"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
