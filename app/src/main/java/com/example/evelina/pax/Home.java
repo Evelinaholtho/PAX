@@ -34,9 +34,7 @@ public class Home extends AppCompatActivity {
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
         mBottomNav.getMenu().getItem(0).setChecked(true);
 
-        String[] homeArray = {"Item 1", "Item 2", "Item 3"};
         ListAdapter listAdapter = new ArrayAdapter<Pax>(this, android.R.layout.simple_list_item_1, storer.getAllPax());
-        //ListAdapter listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, homeArray);
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(listAdapter);
 
