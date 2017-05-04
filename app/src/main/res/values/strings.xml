@@ -20,11 +20,12 @@
     <string name="title_group">Grupper</string>
     <string name="title_settings">Inställningar</string>
 
-    <!-- Strings related to mp activity -->
+    <!-- Strings related to map activity -->
     <string name="title_overmap">Rum i närheten</string>
     <string name="content_description">Karta</string>
     <string name="mapIcon_patricia">Patricia</string>
     <string name="mapIcon_kuggen">Kuggen</string>
 
-
+    <!-- Strings related to avalibleRooms activity -->
+<string name="text_availibeRooms">Lediga rum</string>
 </resources>
