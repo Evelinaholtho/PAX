@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +12,7 @@
         android:id="@+id/navigation_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorMenu"
+        android:background="@drawable/rounded_corners"
         android:checkable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,11 +20,70 @@
 
         />
 
+    <TextView
+        android:id="@+id/textView_myBookings"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/rounded_corners"
+        android:gravity="center"
+        android:text="@string/latest_bookings"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/listView_myBookings"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView_myFavorits"
+        android:layout_width="366dp"
+        android:layout_height="27dp"
+        android:text="TextView"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/listView_myFavorites"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:background="@drawable/rounded_corners"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"/>
+
     <ListView
-        android:id="@+id/listView"
-        android:layout_width="312dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:id="@+id/listView_myBookings"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/rounded_corners_listview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+
+
+
+    <ListView
+        android:id="@+id/listView_myFavorites"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:background="@drawable/rounded_corners_listview"
+        tools:layout_editor_absoluteY="217dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+
 
 </android.support.constraint.ConstraintLayout>

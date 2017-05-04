@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -86,10 +87,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorMenu"
+                android:background="@drawable/rounded_corners"
                 android:text="@string/action_sign_in"
                 android:textColor="@color/colorBlack"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+
+
+                />
 
         </LinearLayout>
     </ScrollView>

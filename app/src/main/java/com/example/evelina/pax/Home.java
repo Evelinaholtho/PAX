@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity {
         mBottomNav.getMenu().getItem(0).setChecked(true);
 
         ListAdapter listAdapter = new ArrayAdapter<Pax>(this, android.R.layout.simple_list_item_1, storer.getAllPax());
-        listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.listView_myBookings);
         listView.setAdapter(listAdapter);
 
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
