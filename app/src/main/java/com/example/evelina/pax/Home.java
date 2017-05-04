@@ -28,34 +28,11 @@ public class Home extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void selectFragment(MenuItem item) {
-
-
-
-        // init corresponding fragment
-        switch (item.getItemId()) {
-            case R.id.navigation_home:
-                Intent intentHome = new Intent(this, Home.class);
-                startActivity(intentHome);
-
-                break;
-            case R.id.navigation_search:
-                break;
-
-            case R.id.navigation_map:
-                Intent intentMap = new Intent(this, Map.class);
-                startActivity(intentMap);
-                break;
-
-            case R.id.navigation_group:
-                break;
-
-            case R.id.navigation_setting:
-                break;
-        }
+        ActivitySwitcher.switchActivity(this, item);
+/*
         mSelectedItem = item.getItemId();
         for (int i = 0; i < mBottomNav.getMenu().size(); i++) {
             MenuItem menuItem = mBottomNav.getMenu().getItem(i);
@@ -70,6 +47,6 @@ public class Home extends AppCompatActivity {
             MenuItem menuItem = mBottomNav.getMenu().getItem(i);
             menuItem.setChecked(menuItem.getItemId() == item.getItemId());
         }
-
+*/
     }
 }
