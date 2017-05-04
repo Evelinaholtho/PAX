@@ -22,7 +22,9 @@
 
     <!-- Strings related to mp activity -->
     <string name="title_overmap">Rum i närheten</string>
+    <string name="content_description">Karta</string>
+    <string name="mapIcon_patricia">Patricia</string>
+    <string name="mapIcon_kuggen">Kuggen</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
