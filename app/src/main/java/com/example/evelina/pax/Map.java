@@ -14,7 +14,9 @@ public class Map extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
+        mBottomNav.getMenu().getItem(2).setChecked(true);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -25,6 +27,7 @@ public class Map extends AppCompatActivity {
 
     private void selectFragment(MenuItem item) {
         ActivitySwitcher.switchActivity(this, item);
+
     }
 }
 

@@ -11,6 +11,7 @@ public interface Storer {
     List<Room> getBuildingRooms(int buildingID) throws NullPointerException;
     List<Room> getAllRooms() throws NullPointerException;
     Room getRoom(String roomName) throws NullPointerException;
+    Room getRoom(int roomID) throws NullPointerException;
     void open() throws StoreException;
     void close() throws StoreException;
 }

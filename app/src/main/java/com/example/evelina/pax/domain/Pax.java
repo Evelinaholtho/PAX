@@ -1,7 +1,10 @@
 package com.example.evelina.pax.domain;
 
 import android.util.Log;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 // Class for pax. Keeps all data related to a booking of a room.
 public class Pax {
@@ -11,10 +14,10 @@ public class Pax {
     private int paxID;
     private int userID;
     private int roomID;
-    private Calendar date;
+    private Date date;
     private int timeIndex;
 
-    public Pax (int userID, int roomID, Calendar date, int timeIndex){
+    public Pax (int userID, int roomID, Date date, int timeIndex){
 
         this.paxID = generatePaxID();
         this.userID = userID;
@@ -25,15 +28,13 @@ public class Pax {
 
     // Get key from db?
     private int generatePaxID(){
+
         return 1;
     }
 
     public String toString(){
         Log.d(LOG_TAG, "toString()");
-        return "/nPax ID: " + paxID
-                + "/nUser ID: " + userID
-                + "/nRoomID: " + roomID
-                + "/nDate: " + date
-                + "/nTime: " + timeIndex + ".00-" + timeIndex + 1 + ".00";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE MMMM d");
+        return "Pax ID: " + paxID + ", " + dateFormat.format(date) + " " + timeIndex + ".00";
     }
 }

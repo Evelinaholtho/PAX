@@ -30,4 +30,7 @@ public class Room {
         Log.d(LOG_TAG, "getRoomName()");
         return roomName;
     }
+    public int getRoomID(){
+        return roomID;
+    }
 }

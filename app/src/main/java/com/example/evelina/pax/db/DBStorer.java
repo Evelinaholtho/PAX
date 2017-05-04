@@ -47,6 +47,12 @@ public class DBStorer implements Storer {
     }
 
     @Override
+    public Room getRoom(int roomID) throws NullPointerException {
+        Log.d(LOG_TAG, "getRoom()");
+        return null;
+    }
+
+    @Override
     public List<Room> getBuildingRooms(int buildingID) throws NullPointerException {
         Log.d(LOG_TAG, "getBuildingRooms()");
         return null;

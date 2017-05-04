@@ -37,9 +37,9 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "populatePaxList()");
 
         paxList = new ArrayList<>();
-        paxList.add(new Pax(1, 1, Calendar.getInstance(), 8));
-        paxList.add(new Pax(1, 1, Calendar.getInstance(), 10));
-        paxList.add(new Pax(2, 2, Calendar.getInstance(), 8));
+        paxList.add(new Pax(1, 1, Calendar.getInstance().getTime(), 8));
+        paxList.add(new Pax(1, 1, Calendar.getInstance().getTime(), 10));
+        paxList.add(new Pax(2, 2, Calendar.getInstance().getTime(), 8));
     }
 
     // Populate list of rooms
@@ -102,6 +102,15 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "getRoom()");
         for(Room r : roomList)
             if(r.getRoomName().equalsIgnoreCase(roomName))
+                return r;
+        return null;
+    }
+
+    @Override
+    public Room getRoom(int roomID) throws NullPointerException {
+        Log.d(LOG_TAG, "getRoom()");
+        for(Room r : roomList)
+            if(r.getRoomID() == roomID)
                 return r;
         return null;
     }
