@@ -20,12 +20,18 @@ public class HardcodedStorer implements Storer {
 
     private static final String LOG_TAG = HardcodedStorer.class.getSimpleName();
 
+    private static final HardcodedStorer ourInstance = new HardcodedStorer();
+
+    public static HardcodedStorer getInstance() {
+        return ourInstance;
+    }
+
     // Initializes lists of all initial paxes, rooms and buildings.
     private static List<Pax> paxList;
     private static List<Room> roomList;
     private static List<Building> buildingList;
 
-    public HardcodedStorer(Context context){
+    public HardcodedStorer(){
         Log.d(LOG_TAG, "HardcodedStorer()");
 
         // Populate db with data.
