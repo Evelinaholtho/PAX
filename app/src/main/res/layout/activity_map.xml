@@ -35,16 +35,18 @@
         android:id="@+id/imageView4"
         android:layout_width="357dp"
         android:layout_height="317dp"
-        app:srcCompat="@drawable/googlemap"
-        android:layout_marginRight="7dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/title_map"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintVertical_bias="0.23"
+
+        app:srcCompat="@drawable/googlemap" />
 
     <ImageButton
         android:id="@+id/imageButtonPatricia"
@@ -55,27 +57,31 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/mapIcon_patricia"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523"
         app:srcCompat="@drawable/ic_place_blue_900_24dp" />
 
     <ImageButton
         android:id="@+id/imageButtonKuggen"
-        android:layout_width="40dp"
-        android:layout_height="39dp"
+        android:layout_width="67dp"
+        android:layout_height="72dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
+        android:contentDescription="@string/mapIcon_kuggen"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52"
+        app:layout_constraintVertical_bias="0.51"
         app:srcCompat="@drawable/ic_place_blue_900_24dp" />
 
 
