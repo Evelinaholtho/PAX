@@ -1,7 +1,7 @@
 package com.example.evelina.pax.domain;
 
-import android.util.Log;
 
+import android.util.Log;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,16 +14,20 @@ public class Pax {
     private int paxID;
     private int userID;
     private int roomID;
-    private Date date;
-    private int timeIndex;
+    private Date startDate;
+    private Date endDate;
 
-    public Pax (int userID, int roomID, Date date, int timeIndex){
+    public Pax (int userID, int roomID, Date startDate){
 
         this.paxID = generatePaxID();
         this.userID = userID;
         this.roomID = roomID;
-        this.date = date;
-        this.timeIndex = timeIndex;
+        this.startDate = startDate;
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(startDate);
+        c.add(Calendar.HOUR, 1);
+        endDate = c.getTime();
     }
 
     // Get key from db?
@@ -34,7 +38,14 @@ public class Pax {
 
     public String toString(){
         Log.d(LOG_TAG, "toString()");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE MMMM d");
-        return "Pax ID: " + paxID + ", " + dateFormat.format(date) + " " + timeIndex + ".00";
+        SimpleDateFormat startDateFormat = new SimpleDateFormat("EEEE d MMMM HH:mm");
+        SimpleDateFormat endDateFormat = new SimpleDateFormat(" - HH:mm");
+
+        return new StringBuilder()
+                .append("Room ID: ")
+                .append(Integer.toString(roomID))
+                .append(". ")
+                .append(startDateFormat.format(startDate))
+                .append(endDateFormat.format(endDate)).toString();
     }
 }

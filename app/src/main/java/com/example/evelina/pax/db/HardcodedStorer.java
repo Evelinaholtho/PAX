@@ -9,8 +9,10 @@ import com.example.evelina.pax.domain.Room;
 import com.example.evelina.pax.domain.StoreException;
 import com.example.evelina.pax.domain.Storer;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 // Hardcoded, non-persistent DB for paxes, rooms and buildings.
@@ -37,9 +39,14 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "populatePaxList()");
 
         paxList = new ArrayList<>();
-        paxList.add(new Pax(1, 1, Calendar.getInstance().getTime(), 8));
-        paxList.add(new Pax(1, 1, Calendar.getInstance().getTime(), 10));
-        paxList.add(new Pax(2, 2, Calendar.getInstance().getTime(), 8));
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR, 8);
+        c.set(Calendar.MINUTE, 0);
+        paxList.add(new Pax(1, 1, c.getTime()));
+        c.add(Calendar.HOUR,1);
+        paxList.add(new Pax(1, 1, c.getTime()));
+        c.add(Calendar.HOUR,4);
+        paxList.add(new Pax(2, 2, c.getTime()));
     }
 
     // Populate list of rooms
