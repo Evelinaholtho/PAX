@@ -1,6 +1,5 @@
 package com.example.evelina.pax.db;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.example.evelina.pax.domain.Building;
@@ -9,16 +8,16 @@ import com.example.evelina.pax.domain.Room;
 import com.example.evelina.pax.domain.StoreException;
 import com.example.evelina.pax.domain.Storer;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 // Hardcoded, non-persistent DB for paxes, rooms and buildings.
 public class HardcodedStorer implements Storer {
 
     private static final String LOG_TAG = HardcodedStorer.class.getSimpleName();
+    private static final int START_PAX_HOUR = 8;
+    private static final int END_PAX_HOUR = 17;
 
     private static final HardcodedStorer ourInstance = new HardcodedStorer();
 
@@ -48,11 +47,11 @@ public class HardcodedStorer implements Storer {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR, 8);
         c.set(Calendar.MINUTE, 0);
-        paxList.add(new Pax(1, 1, c.getTime()));
+        paxList.add(Pax.getInstance(1, 1, c));
         c.add(Calendar.HOUR,1);
-        paxList.add(new Pax(1, 1, c.getTime()));
+        paxList.add(Pax.getInstance(1, 1, c));
         c.add(Calendar.HOUR,4);
-        paxList.add(new Pax(2, 2, c.getTime()));
+        paxList.add(Pax.getInstance(1, 2, c));
     }
 
     // Populate list of rooms
@@ -83,6 +82,11 @@ public class HardcodedStorer implements Storer {
         buildingList = new ArrayList<>();
         buildingList.add(new Building(1, "Patricia"));
         buildingList.add(new Building(2, "Kuggen"));
+    }
+
+    // Checks db for adjacent paxes, and merges these if there are.
+    public void adjacencyCheck(){
+
     }
 
     @Override
@@ -151,5 +155,70 @@ public class HardcodedStorer implements Storer {
     public void close() throws StoreException {
         Log.d(LOG_TAG, "close()");
 
+    }
+
+
+    @Override
+    public Pax mergeAdjacent(Pax pax) {
+
+        return mergePrevious(mergeNext(pax));
+    }
+
+    private Pax mergeNext(Pax pax){
+
+        while(pax.getStartDate().get(Calendar.HOUR) < END_PAX_HOUR){
+
+            for(Pax p : paxList){
+                if(p.getStartDate().equals(pax.getEndDate())){
+                    if(p.getUserID() == pax.getUserID()){
+                        if(p.getRoomID() == pax.getRoomID()){
+                            p.setStartDate(pax.getStartDate());
+                            return mergeNext(p);
+                        }
+                    }
+                }
+            }
+        }
+        return pax;
+    }
+
+    private Pax mergePrevious(Pax pax){
+
+        while(pax.getStartDate().get(Calendar.HOUR) > START_PAX_HOUR){
+
+            for(Pax p : paxList){
+                if(pax.getStartDate().equals(p.getEndDate())){
+                    if(p.getUserID() == pax.getUserID()){
+                        if(p.getRoomID() == pax.getRoomID()){
+                            p.setStartDate(pax.getStartDate());
+                            return mergePrevious(p);
+                        }
+                    }
+                }
+            }
+        }
+        return pax;
+    }
+
+    @Override
+    public int getMaxPaxID() {
+
+        int maxID = 0;
+
+        for(Pax p : paxList)
+            if(p.getPaxID() > maxID)
+                maxID = p.getPaxID();
+        return maxID + 1;
+    }
+
+    @Override
+    public int getMaxRoomID() {
+
+        int maxID = 0;
+
+        for(Room r : roomList)
+            if(r.getRoomID() > maxID)
+                maxID = r.getRoomID();
+        return maxID + 1;
     }
 }

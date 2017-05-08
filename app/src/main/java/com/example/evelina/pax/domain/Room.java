@@ -19,7 +19,7 @@ public class Room {
     }
 
     private int generateRoomID(){
-        return 1;
+        return StorerFactory.getInstance().getMaxRoomID();
     }
 
     public int getBuildingID(){
