@@ -84,4 +84,19 @@ public class DBStorer implements Storer {
         Log.d(LOG_TAG, "close()");
         dbHelper.close();
     }
+
+    @Override
+    public Pax mergeAdjacent(Pax p) {
+        return null;
+    }
+
+    @Override
+    public int getMaxPaxID() {
+        return 0;
+    }
+
+    @Override
+    public int getMaxRoomID() {
+        return 0;
+    }
 }
