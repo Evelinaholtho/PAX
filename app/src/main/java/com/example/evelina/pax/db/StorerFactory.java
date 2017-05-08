@@ -1,8 +1,6 @@
-package com.example.evelina.pax.domain;
+package com.example.evelina.pax.db;
 
 import android.util.Log;
-
-import com.example.evelina.pax.db.HardcodedStorer;
 
 // Fetches singleton instance of db to be used.
 public class StorerFactory {

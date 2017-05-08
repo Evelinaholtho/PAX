@@ -7,8 +7,6 @@ import android.util.Log;
 
 import com.example.evelina.pax.domain.Pax;
 import com.example.evelina.pax.domain.Room;
-import com.example.evelina.pax.domain.StoreException;
-import com.example.evelina.pax.domain.Storer;
 
 import java.util.List;
 
@@ -26,6 +24,11 @@ public class DBStorer implements Storer {
     public DBStorer(Context context){
         Log.d(LOG_TAG, "DBStorer()");
         dbHelper = new StoreHelper(context);
+    }
+
+    @Override
+    public void initLists() {
+
     }
 
     @Override

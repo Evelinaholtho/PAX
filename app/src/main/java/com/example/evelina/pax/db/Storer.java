@@ -1,4 +1,7 @@
-package com.example.evelina.pax.domain;
+package com.example.evelina.pax.db;
+
+import com.example.evelina.pax.domain.Pax;
+import com.example.evelina.pax.domain.Room;
 
 import java.util.List;
 
@@ -20,4 +23,6 @@ public interface Storer {
     int getMaxPaxID();
 
     int getMaxRoomID();
+
+    void initLists();
 }

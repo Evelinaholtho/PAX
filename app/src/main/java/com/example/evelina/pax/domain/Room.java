@@ -2,6 +2,8 @@ package com.example.evelina.pax.domain;
 
 import android.util.Log;
 
+import com.example.evelina.pax.db.StorerFactory;
+
 // Class for room. Keeps all data related to a room.
 public class Room {
 
@@ -21,9 +23,7 @@ public class Room {
 
     private int generateRoomID(){
         Log.d(LOG_TAG, "generateRoomID()");
-
-        //return StorerFactory.getInstance().getMaxRoomID();
-        return 1;
+        return StorerFactory.getInstance().getMaxRoomID();
     }
 
     public int getBuildingID(){

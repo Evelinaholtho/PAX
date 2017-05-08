@@ -1,7 +1,10 @@
 package com.example.evelina.pax.domain;
 
 import android.util.Log;
-import java.text.SimpleDateFormat;
+
+import com.example.evelina.pax.db.StorerFactory;
+import com.example.evelina.pax.util.TimeMaker;
+
 import java.util.Calendar;
 
 // Class for pax. Keeps all data related to a booking of a room.
@@ -30,33 +33,19 @@ public class Pax {
         this.userID = userID;
         this.roomID = roomID;
         this.startDate = startDate;
-
         endDate = (Calendar)startDate.clone();
-        endDate.set(Calendar.HOUR, startDate.get(Calendar.HOUR) + 1);
+        endDate.add(Calendar.HOUR_OF_DAY, 1);
     }
 
     private int generatePaxID(){
         Log.d(LOG_TAG, "generatePaxID()");
-
-        //return StorerFactory.getInstance().getMaxPaxID();
-        return 1;
+        return StorerFactory.getInstance().getMaxPaxID();
     }
 
     public String toString(){
         Log.d(LOG_TAG, "toString()");
-        SimpleDateFormat startDateFormat = new SimpleDateFormat("EEEE d MMMM HH:mm");
-        SimpleDateFormat endDateFormat = new SimpleDateFormat(" - HH:mm");
-
-        /*
-        String s = new StringBuilder()
-                .append("Room ID: ")
-                .append(Integer.toString(roomID))
-                .append(". ")
-                .append(startDateFormat.format(startDate))
-                .append(endDateFormat.format(endDate)).toString();
-        */
-
-        return "Room ID: " + roomID + ". " + startDateFormat.format(startDate.getTime()) + endDateFormat.format(endDate.getTime());
+        return "Room ID: " + roomID + ". " + TimeMaker.getFormat().format(startDate.getTime())
+                + "-" + endDate.get(Calendar.HOUR_OF_DAY) + ":00";
     }
 
     public Calendar getStartDate(){

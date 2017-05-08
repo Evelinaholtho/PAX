@@ -5,8 +5,7 @@ import android.util.Log;
 import com.example.evelina.pax.domain.Building;
 import com.example.evelina.pax.domain.Pax;
 import com.example.evelina.pax.domain.Room;
-import com.example.evelina.pax.domain.StoreException;
-import com.example.evelina.pax.domain.Storer;
+import com.example.evelina.pax.util.TimeMaker;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,7 +20,7 @@ public class HardcodedStorer implements Storer {
 
     private static final HardcodedStorer ourInstance = new HardcodedStorer();
 
-    public static HardcodedStorer getInstance() {
+    protected static HardcodedStorer getInstance() {
         Log.d(LOG_TAG, "getInstance()");
         return ourInstance;
     }
@@ -31,20 +30,17 @@ public class HardcodedStorer implements Storer {
     private static List<Room> roomList;
     private static List<Building> buildingList;
 
-    public HardcodedStorer(){
+    private HardcodedStorer(){
         Log.d(LOG_TAG, "HardcodedStorer()");
+    }
+
+    public void initLists(){
+        Log.d(LOG_TAG, "initLists()");
 
         // Populate db with data.
-        Log.d(LOG_TAG, "Starting population of buildingList");
         populateBuildingList();
-        Log.d(LOG_TAG, "Ending population of buildingList");
-        Log.d(LOG_TAG, "Starting population of roomList");
         populateRoomList();
-        Log.d(LOG_TAG, "Ending population of roomList");
-        Log.d(LOG_TAG, "Starting population of paxList");
         populatePaxList();
-        Log.d(LOG_TAG, "Ending population of paxList");
-
     }
 
     // Populate list of pax
@@ -52,13 +48,17 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "populatePaxList()");
 
         paxList = new ArrayList<>();
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.HOUR, 8);
-        c.set(Calendar.MINUTE, 0);
+
+        Calendar c = TimeMaker.getCalendar();
+        c.set(Calendar.HOUR_OF_DAY, 8);
         paxList.add(Pax.getInstance(1, 1, c));
-        c.add(Calendar.HOUR,1);
+
+        c = TimeMaker.getCalendar();
+        c.set(Calendar.HOUR_OF_DAY, 9);
         paxList.add(Pax.getInstance(1, 1, c));
-        c.add(Calendar.HOUR,4);
+
+        c = TimeMaker.getCalendar();
+        c.set(Calendar.HOUR_OF_DAY, 14);
         paxList.add(Pax.getInstance(1, 2, c));
     }
 
@@ -165,32 +165,31 @@ public class HardcodedStorer implements Storer {
     public Pax mergeAdjacent(Pax pax) {
         Log.d(LOG_TAG, "mergeAdjacent()");
 
-        return mergePrevious(mergeNext(pax));
+        //return mergePrevious(mergeNext(pax));
+        return mergeNext(pax);
     }
 
     private Pax mergeNext(Pax pax){
         Log.d(LOG_TAG, "mergeNext()");
 
-        while(pax.getStartDate().get(Calendar.HOUR) < END_PAX_HOUR){
+        //while(pax.getStartDate().get(Calendar.HOUR_OF_DAY) < END_PAX_HOUR){
 
             for(Pax p : paxList){
-                if(p.getStartDate().equals(pax.getEndDate())){
-                    if(p.getUserID() == pax.getUserID()){
-                        if(p.getRoomID() == pax.getRoomID()){
-                            p.setStartDate(pax.getStartDate());
-                            return mergeNext(p);
-                        }
-                    }
+                if(p.getStartDate().equals(pax.getEndDate()) &&
+                        (p.getUserID() == pax.getUserID()) &&
+                        (p.getRoomID() == pax.getRoomID())){
+                    p.setStartDate(pax.getStartDate());
+                    return mergeNext(p);
                 }
             }
-        }
+        //}
         return pax;
     }
 
     private Pax mergePrevious(Pax pax){
         Log.d(LOG_TAG, "mergePrevious()");
 
-        while(pax.getStartDate().get(Calendar.HOUR) > START_PAX_HOUR){
+        while(pax.getStartDate().get(Calendar.HOUR_OF_DAY) > START_PAX_HOUR){
 
             for(Pax p : paxList){
                 if(pax.getStartDate().equals(p.getEndDate())){
@@ -225,12 +224,6 @@ public class HardcodedStorer implements Storer {
 
         int maxID = 0;
 
-        String s;
-        if(roomList.isEmpty())
-            s = "true";
-        else
-            s = "false";
-        Log.d(LOG_TAG, s);
         if(!roomList.isEmpty())
             for(Room r : roomList)
                 if(r.getRoomID() > maxID)
