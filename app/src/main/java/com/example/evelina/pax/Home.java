@@ -9,8 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.evelina.pax.domain.Pax;
 import com.example.evelina.pax.domain.Storer;
 import com.example.evelina.pax.domain.StorerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Home extends AppCompatActivity {
 
@@ -40,6 +44,11 @@ public class Home extends AppCompatActivity {
         ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getAllPax());
         listView = (ListView) findViewById(R.id.listView_myBookings);
         listView.setAdapter(listAdapter);
+
+
+
+
+
     }
 
     // Switches to activity that corresponds to the item on navigation bar.

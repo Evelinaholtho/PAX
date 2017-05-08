@@ -1,7 +1,5 @@
 package com.example.evelina.pax.domain;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 // Interface telling extending classes which methods to implement.

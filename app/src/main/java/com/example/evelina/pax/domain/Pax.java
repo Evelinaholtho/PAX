@@ -10,9 +10,11 @@ public class Pax {
     private static final String LOG_TAG = Pax.class.getSimpleName();
 
     public static Pax getInstance(int userID, int roomID, Calendar startDate){
+        Log.d(LOG_TAG, "getInstance()");
         // Sends new Pax to db to check if there are existent adjacent paxes. If so, merge these into one pax, and return.
         // Returns new pax if none adjacent.
-        return StorerFactory.getInstance().mergeAdjacent(new Pax(userID, roomID, startDate));
+        //return StorerFactory.getInstance().mergeAdjacent(new Pax(userID, roomID, startDate));
+        return new Pax(userID, roomID, startDate);
     }
 
     private int paxID;
@@ -22,6 +24,7 @@ public class Pax {
     private Calendar endDate;
 
     private Pax (int userID, int roomID, Calendar startDate){
+        Log.d(LOG_TAG, "Pax()");
 
         this.paxID = generatePaxID();
         this.userID = userID;
@@ -33,8 +36,10 @@ public class Pax {
     }
 
     private int generatePaxID(){
+        Log.d(LOG_TAG, "generatePaxID()");
 
-        return StorerFactory.getInstance().getMaxPaxID();
+        //return StorerFactory.getInstance().getMaxPaxID();
+        return 1;
     }
 
     public String toString(){
@@ -42,43 +47,55 @@ public class Pax {
         SimpleDateFormat startDateFormat = new SimpleDateFormat("EEEE d MMMM HH:mm");
         SimpleDateFormat endDateFormat = new SimpleDateFormat(" - HH:mm");
 
-        return new StringBuilder()
+        /*
+        String s = new StringBuilder()
                 .append("Room ID: ")
                 .append(Integer.toString(roomID))
                 .append(". ")
                 .append(startDateFormat.format(startDate))
                 .append(endDateFormat.format(endDate)).toString();
+        */
+
+        return "Room ID: " + roomID + ". " + startDateFormat.format(startDate.getTime()) + endDateFormat.format(endDate.getTime());
     }
 
     public Calendar getStartDate(){
+        Log.d(LOG_TAG, "getStartDate()");
         return startDate;
     }
 
     public Calendar getEndDate(){
+        Log.d(LOG_TAG, "getEndDate()");
         return endDate;
     }
 
     public void setStartDate(Calendar startDate) {
+        Log.d(LOG_TAG, "setStartDate()");
         this.startDate = startDate;
     }
 
     public int getPaxID() {
+        Log.d(LOG_TAG, "getPaxID()");
         return paxID;
     }
 
     public void setPaxID(int paxID) {
+        Log.d(LOG_TAG, "setPaxID()");
         this.paxID = paxID;
     }
 
     public void setEndDate(Calendar endDate) {
+        Log.d(LOG_TAG, "setEndDate()");
         this.endDate = endDate;
     }
 
     public int getUserID(){
+        Log.d(LOG_TAG, "getUserID()");
         return userID;
     }
 
     public int getRoomID(){
+        Log.d(LOG_TAG, "getRoomID()");
         return roomID;
     }
 }

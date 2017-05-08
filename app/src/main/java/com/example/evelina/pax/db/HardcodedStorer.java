@@ -22,6 +22,7 @@ public class HardcodedStorer implements Storer {
     private static final HardcodedStorer ourInstance = new HardcodedStorer();
 
     public static HardcodedStorer getInstance() {
+        Log.d(LOG_TAG, "getInstance()");
         return ourInstance;
     }
 
@@ -34,9 +35,16 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "HardcodedStorer()");
 
         // Populate db with data.
+        Log.d(LOG_TAG, "Starting population of buildingList");
         populateBuildingList();
+        Log.d(LOG_TAG, "Ending population of buildingList");
+        Log.d(LOG_TAG, "Starting population of roomList");
         populateRoomList();
+        Log.d(LOG_TAG, "Ending population of roomList");
+        Log.d(LOG_TAG, "Starting population of paxList");
         populatePaxList();
+        Log.d(LOG_TAG, "Ending population of paxList");
+
     }
 
     // Populate list of pax
@@ -77,16 +85,11 @@ public class HardcodedStorer implements Storer {
 
     // Populate list of buildings
     private void populateBuildingList() {
-        Log.d(LOG_TAG, "populateRoomList()");
+        Log.d(LOG_TAG, "populateBuildingList()");
 
         buildingList = new ArrayList<>();
         buildingList.add(new Building(1, "Patricia"));
         buildingList.add(new Building(2, "Kuggen"));
-    }
-
-    // Checks db for adjacent paxes, and merges these if there are.
-    public void adjacencyCheck(){
-
     }
 
     @Override
@@ -160,11 +163,13 @@ public class HardcodedStorer implements Storer {
 
     @Override
     public Pax mergeAdjacent(Pax pax) {
+        Log.d(LOG_TAG, "mergeAdjacent()");
 
         return mergePrevious(mergeNext(pax));
     }
 
     private Pax mergeNext(Pax pax){
+        Log.d(LOG_TAG, "mergeNext()");
 
         while(pax.getStartDate().get(Calendar.HOUR) < END_PAX_HOUR){
 
@@ -183,6 +188,7 @@ public class HardcodedStorer implements Storer {
     }
 
     private Pax mergePrevious(Pax pax){
+        Log.d(LOG_TAG, "mergePrevious()");
 
         while(pax.getStartDate().get(Calendar.HOUR) > START_PAX_HOUR){
 
@@ -202,23 +208,33 @@ public class HardcodedStorer implements Storer {
 
     @Override
     public int getMaxPaxID() {
+        Log.d(LOG_TAG, "getMaxPaxID()");
 
         int maxID = 0;
 
-        for(Pax p : paxList)
-            if(p.getPaxID() > maxID)
-                maxID = p.getPaxID();
+        if(!paxList.isEmpty())
+            for (Pax p : paxList)
+                if (p.getPaxID() > maxID)
+                    maxID = p.getPaxID();
         return maxID + 1;
     }
 
     @Override
     public int getMaxRoomID() {
+        Log.d(LOG_TAG, "getMaxRoomID()");
 
         int maxID = 0;
 
-        for(Room r : roomList)
-            if(r.getRoomID() > maxID)
-                maxID = r.getRoomID();
+        String s;
+        if(roomList.isEmpty())
+            s = "true";
+        else
+            s = "false";
+        Log.d(LOG_TAG, s);
+        if(!roomList.isEmpty())
+            for(Room r : roomList)
+                if(r.getRoomID() > maxID)
+                    maxID = r.getRoomID();
         return maxID + 1;
     }
 }

@@ -12,6 +12,7 @@ public class Room {
     private String roomName;
 
     public Room(int buildingID, String roomName){
+        Log.d(LOG_TAG, "Room()");
 
         this.roomID = generateRoomID();
         this.buildingID = buildingID;
@@ -19,7 +20,10 @@ public class Room {
     }
 
     private int generateRoomID(){
-        return StorerFactory.getInstance().getMaxRoomID();
+        Log.d(LOG_TAG, "generateRoomID()");
+
+        //return StorerFactory.getInstance().getMaxRoomID();
+        return 1;
     }
 
     public int getBuildingID(){
@@ -31,6 +35,7 @@ public class Room {
         return roomName;
     }
     public int getRoomID(){
+        Log.d(LOG_TAG, "getRoomID()");
         return roomID;
     }
 }
