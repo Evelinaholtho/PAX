@@ -14,9 +14,7 @@ import com.example.evelina.pax.db.Storer;
 import com.example.evelina.pax.db.StorerFactory;
 
 public class Home extends AppCompatActivity {
-
     private static final String LOG_TAG = Home.class.getSimpleName();
-
     private BottomNavigationView mBottomNav;
     private ListView listView;
 

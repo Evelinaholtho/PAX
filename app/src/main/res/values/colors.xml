@@ -9,5 +9,7 @@
         <color name="colorList">#D21D2971</color>
         <color name="colorMenu">#fafafa</color>
         <color name="colorListView">#FF3E488E</color>
-    </resources>
+        <color name="red">#FFF61511</color>
+        <color name="green">#FF1FBE22</color>
 
+    </resources>

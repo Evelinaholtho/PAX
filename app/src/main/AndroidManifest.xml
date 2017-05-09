@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".Home" />
         <activity android:name=".Map" />
-        <activity android:name=".AvailableRooms"></activity>
+        <activity android:name=".AvailableRooms" />
+        <activity android:name=".CalendarDayview"></activity>
     </application>
 
 </manifest>

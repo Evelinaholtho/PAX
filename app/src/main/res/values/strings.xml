@@ -33,6 +33,14 @@
     <string name="mapIcon_kuggen">Kuggen</string>
 
     <!-- Strings related to avalibleRooms activity -->
-<string name="text_availibeRooms">Lediga rum</string>
+    <string name="text_availibeRooms">Lediga rum</string>
+
+    <!-- Strings related to calendar dayview activity -->
+    <string name="roomName">Rumsnamn</string>
+    <string name="date">Datum</string>
+    <string name="avalible">Ledigt</string>
+    <string name="paxed">Paxat</string>
+    <string name="my_pax">Min Pax</string>
+
 
 </resources>
