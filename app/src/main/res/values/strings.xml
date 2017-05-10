@@ -41,6 +41,14 @@
     <string name="avalible">Ledigt</string>
     <string name="paxed">Paxat</string>
     <string name="my_pax">Min Pax</string>
-
-
+    <string name="kl0800">08:00</string>
+    <string name="kl0900">09:00</string>
+    <string name="kl1000">10:00</string>
+    <string name="kl1100">11:00</string>
+    <string name="kl1200">12:00</string>
+    <string name="kl1300">13:00</string>
+    <string name="kl1400">14:00</string>
+    <string name="kl1500">15:00</string>
+    <string name="kl1600">16:00</string>
+    <string name="kl1700">17:00</string>
 </resources>
