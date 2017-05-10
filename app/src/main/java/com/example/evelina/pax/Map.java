@@ -13,11 +13,31 @@ import android.widget.ImageButton;
 public class Map extends AppCompatActivity {
 
     private BottomNavigationView mBottomNav;
-
+    ImageButton buttonPatricia;
+    ImageButton buttonKuggen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        buttonPatricia=(ImageButton) findViewById(R.id.imageButtonPatricia);
+        buttonKuggen=(ImageButton) findViewById(R.id.imageButtonKuggen);
+
+        buttonPatricia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Map.this, AvailableRooms.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonKuggen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Map.this, AvailableRooms.class);
+                startActivity(intent);
+            }
+        });
 
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
         mBottomNav.getMenu().getItem(2).setChecked(true);
@@ -39,6 +59,8 @@ public class Map extends AppCompatActivity {
         ActivitySwitcher.switchActivity(this, item);
 
     }
+
+
 
 
 }
