@@ -16,8 +16,13 @@ public class Pax {
         Log.d(LOG_TAG, "getInstance()");
         // Sends new Pax to db to check if there are existent adjacent paxes. If so, merge these into one pax, and return.
         // Returns new pax if none adjacent.
-        //return StorerFactory.getInstance().mergeAdjacent(new Pax(userID, roomID, startDate));
-        return new Pax(userID, roomID, startDate);
+
+        //Pax newPax = StorerFactory.getInstance().mergeAdjacent(new Pax(userID, roomID, startDate));
+        Pax newPax = new Pax(userID, roomID, startDate);
+        StorerFactory.getInstance().storePax(newPax);
+        //StorerFactory.getInstance().update();
+        return newPax;
+        //return new Pax(userID, roomID, startDate);
     }
 
     private int paxID;

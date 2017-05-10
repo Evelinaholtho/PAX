@@ -38,4 +38,8 @@ public class Room {
         Log.d(LOG_TAG, "getRoomID()");
         return roomID;
     }
+
+    public String toString(){
+        return roomName;
+    }
 }

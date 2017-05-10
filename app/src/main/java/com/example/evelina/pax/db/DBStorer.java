@@ -27,8 +27,18 @@ public class DBStorer implements Storer {
     }
 
     @Override
+    public List<Room> getBuildingRooms(String buildingName) throws NullPointerException {
+        return null;
+    }
+
+    @Override
     public void initLists() {
 
+    }
+
+    @Override
+    public boolean isPaxedNow(int roomID) {
+        return false;
     }
 
     @Override

@@ -28,7 +28,7 @@ public class Home extends AppCompatActivity {
         // Get access to db.
         Storer storer = StorerFactory.getInstance();
         // Fill db with data.
-        storer.initLists();
+        Tester.populate();
 
         // Initialize navigation bar
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);

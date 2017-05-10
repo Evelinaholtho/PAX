@@ -13,4 +13,12 @@ public class Building {
         this.buildingID = buildingID;
         this.buildingName = buildingName;
     }
+
+    public int getBuildingID() {
+        return buildingID;
+    }
+
+    public String getBuildingName() {
+        return buildingName;
+    }
 }

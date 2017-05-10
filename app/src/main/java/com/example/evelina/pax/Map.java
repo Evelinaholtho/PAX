@@ -27,6 +27,7 @@ public class Map extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Map.this, AvailableRooms.class);
+                intent.putExtra("building", "patricia");
                 startActivity(intent);
             }
         });
@@ -35,6 +36,7 @@ public class Map extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Map.this, AvailableRooms.class);
+                intent.putExtra("building", "kuggen");
                 startActivity(intent);
             }
         });

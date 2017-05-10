@@ -12,6 +12,7 @@ public interface Storer {
     void storePax (Pax p);
     void deletePax (Pax p);
     List<Room> getBuildingRooms(int buildingID) throws NullPointerException;
+    List<Room> getBuildingRooms(String buildingName) throws NullPointerException;
     List<Room> getAllRooms() throws NullPointerException;
     Room getRoom(String roomName) throws NullPointerException;
     Room getRoom(int roomID) throws NullPointerException;
@@ -25,4 +26,6 @@ public interface Storer {
     int getMaxRoomID();
 
     void initLists();
+
+    boolean isPaxedNow(int roomID);
 }

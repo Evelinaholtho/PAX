@@ -43,6 +43,22 @@ public class HardcodedStorer implements Storer {
         populatePaxList();
     }
 
+    @Override
+    public boolean isPaxedNow(int roomID) {
+        Log.d(LOG_TAG, "isPaxedNow()");
+
+        boolean isPaxedNow = false;
+
+        for(Pax p : paxList){
+            if(p.getRoomID() == roomID
+                    && p.getStartDate().after(TimeMaker.getCalendar())
+                    && p.getEndDate().before((TimeMaker.getCalendar()))){
+                isPaxedNow = true;
+            }
+        }
+        return isPaxedNow;
+    }
+
     // Populate list of pax
     private void populatePaxList() {
         Log.d(LOG_TAG, "populatePaxList()");
@@ -51,15 +67,18 @@ public class HardcodedStorer implements Storer {
 
         Calendar c = TimeMaker.getCalendar();
         c.set(Calendar.HOUR_OF_DAY, 8);
-        paxList.add(Pax.getInstance(1, 1, c));
+        //paxList.add(Pax.getInstance(1, 1, c));
+        Pax.getInstance(1, 1, c);
 
         c = TimeMaker.getCalendar();
         c.set(Calendar.HOUR_OF_DAY, 9);
-        paxList.add(Pax.getInstance(1, 1, c));
+        //paxList.add(Pax.getInstance(1, 1, c));
+        Pax.getInstance(1, 1, c);
 
         c = TimeMaker.getCalendar();
         c.set(Calendar.HOUR_OF_DAY, 14);
-        paxList.add(Pax.getInstance(1, 2, c));
+        //paxList.add(Pax.getInstance(1, 2, c));
+        Pax.getInstance(1, 2, c);
     }
 
     // Populate list of rooms
@@ -107,6 +126,18 @@ public class HardcodedStorer implements Storer {
             if(r.getBuildingID() == buildingID)
                 buildingRoomList.add(r);
         return buildingRoomList;
+    }
+
+    @Override
+    public List<Room> getBuildingRooms(String buildingName) throws NullPointerException {
+        Log.d(LOG_TAG, "getBuildingRooms()");
+        int i = 1;
+        for(Building b : buildingList){
+            if(b.getBuildingName().equalsIgnoreCase(buildingName))
+                i = b.getBuildingID();
+        }
+
+        return getBuildingRooms(i);
     }
 
     // Get list of all rooms.
@@ -166,43 +197,46 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "mergeAdjacent()");
 
         //return mergePrevious(mergeNext(pax));
-        return mergeNext(pax);
+        //return mergeNext(pax);
+        return pax;
     }
 
     private Pax mergeNext(Pax pax){
         Log.d(LOG_TAG, "mergeNext()");
 
-        //while(pax.getStartDate().get(Calendar.HOUR_OF_DAY) < END_PAX_HOUR){
+        Pax paxToReturn = pax;
 
-            for(Pax p : paxList){
-                if(p.getStartDate().equals(pax.getEndDate()) &&
-                        (p.getUserID() == pax.getUserID()) &&
-                        (p.getRoomID() == pax.getRoomID())){
-                    p.setStartDate(pax.getStartDate());
-                    return mergeNext(p);
-                }
+        for(Pax p : paxList){
+            if(p.getStartDate().get(Calendar.HOUR_OF_DAY) == pax.getEndDate().get(Calendar.HOUR_OF_DAY)
+                    && (p.getEndDate().get(Calendar.HOUR_OF_DAY) <= END_PAX_HOUR)
+                    && (p.getUserID() == pax.getUserID())
+                    && (p.getRoomID() == pax.getRoomID())){
+                Log.d(LOG_TAG, "Pass check: \n" + p.toString());
+                p.setStartDate(pax.getStartDate());
+                Log.d(LOG_TAG, "Changed pax: \n" + p.toString());
+                paxToReturn = mergeNext(p);
             }
-        //}
-        return pax;
+        }
+        return paxToReturn;
     }
 
     private Pax mergePrevious(Pax pax){
         Log.d(LOG_TAG, "mergePrevious()");
 
-        while(pax.getStartDate().get(Calendar.HOUR_OF_DAY) > START_PAX_HOUR){
+        Pax paxToReturn = pax;
 
-            for(Pax p : paxList){
-                if(pax.getStartDate().equals(p.getEndDate())){
-                    if(p.getUserID() == pax.getUserID()){
-                        if(p.getRoomID() == pax.getRoomID()){
-                            p.setStartDate(pax.getStartDate());
-                            return mergePrevious(p);
-                        }
-                    }
-                }
+        for(Pax p : paxList){
+            if(p.getEndDate().get(Calendar.HOUR_OF_DAY) == pax.getStartDate().get(Calendar.HOUR_OF_DAY)
+                    && (p.getStartDate().get(Calendar.HOUR_OF_DAY) > START_PAX_HOUR)
+                    && (p.getUserID() == pax.getUserID())
+                    && (p.getRoomID() == pax.getRoomID())){
+                Log.d(LOG_TAG, "Pass check: \n" + p.toString());
+                p.setEndDate(pax.getEndDate());
+                Log.d(LOG_TAG, "Changed pax: \n" + p.toString());
+                paxToReturn = mergePrevious(p);
             }
         }
-        return pax;
+        return paxToReturn;
     }
 
     @Override
