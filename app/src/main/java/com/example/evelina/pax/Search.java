@@ -5,9 +5,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class Search extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
+    private EditText editText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +26,10 @@ public class Search extends AppCompatActivity {
                 return true;
             }
 
-
         });
+        editText = (EditText) findViewById(R.id.editText);
+        editText.setError("Under utveckling");
+
     }
     private void selectFragment(MenuItem item) {
         ActivitySwitcher.switchActivity(this, item);
