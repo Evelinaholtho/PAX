@@ -45,6 +45,7 @@ public class Home extends AppCompatActivity {
         ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getAllPax());
         listView = (ListView) findViewById(R.id.listView_myBookings);
         listView.setAdapter(listAdapter);
+
     }
 
     // Switches to activity that corresponds to the item on navigation bar.

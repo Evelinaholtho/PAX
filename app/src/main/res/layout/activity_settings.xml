@@ -17,4 +17,13 @@
         app:menu="@menu/navigation"
         />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="219dp"
+        android:layout_height="57dp"
+        android:text="Språk"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="50dp"
+        android:drawableLeft="@drawable/ic_language_black_24dp"/>
+
 </android.support.constraint.ConstraintLayout>
