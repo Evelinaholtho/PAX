@@ -28,6 +28,8 @@ public class ActivitySwitcher {
         case R.id.navigation_group:
             break;
         case R.id.navigation_setting:
+            Intent intentSettings = new Intent(activity, Settings.class);
+            activity.startActivity(intentSettings);
             break;
         }
     }

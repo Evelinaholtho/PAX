@@ -24,7 +24,8 @@
         <activity android:name=".Home" />
         <activity android:name=".Map" />
         <activity android:name=".AvailableRooms" />
-        <activity android:name=".CalendarDayview"></activity>
+        <activity android:name=".CalendarDayview" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
