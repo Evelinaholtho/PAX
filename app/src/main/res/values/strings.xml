@@ -22,9 +22,9 @@
     <string name="title_settings">Inställningar</string>
 
     <!-- Strings related to bottombar -->
-    <string name="my_bookings">Mina paxningar</string>
-    <string name="my_favorits">Mina favoriter</string>
-    <string name="latest_bookings">Senaste paxningar</string>
+    <string name="bookings">                                       Mina paxningar</string>
+    <string name="my_favorits">   Favorit rum</string>
+    <string name="latest_bookings">   Senaste paxningar</string>
 
     <!-- Strings related to map activity -->
     <string name="title_overmap">Rum i närheten</string>
@@ -33,7 +33,7 @@
     <string name="mapIcon_kuggen">Kuggen</string>
 
     <!-- Strings related to avalibleRooms activity -->
-    <string name="text_availibeRooms">Lediga rum</string>
+    <string name="text_availebleRooms">Lediga rum</string>
 
     <!-- Strings related to calendar dayview activity -->
     <string name="roomName">Rumsnamn</string>
