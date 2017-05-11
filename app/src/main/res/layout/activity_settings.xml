@@ -17,13 +17,48 @@
         app:menu="@menu/navigation"
         />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="219dp"
-        android:layout_height="57dp"
-        android:text="Språk"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="50dp"
-        android:drawableLeft="@drawable/ic_language_black_24dp"/>
+    <LinearLayout
+        android:layout_width="325dp"
+        android:layout_height="298dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="54dp"
+        android:divider="@color/colorWhite">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorBackground"
+            android:text="Språk"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@+id/switch1"
+            tools:layout_editor_absoluteX="47dp"
+            android:onClick="displayToastMsg"/>
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:checked="false"
+            android:splitTrack="true"
+            android:text="Notiser"
+            android:textColor="@color/colorWhite"
+            tools:checked="false"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="94dp"
+            android:onClick="displayToastMsg"/>
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Switch"
+            android:textColor="@color/colorWhite"
+            android:onClick="displayToastMsg"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

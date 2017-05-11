@@ -5,7 +5,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Search extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
@@ -29,6 +31,19 @@ public class Search extends AppCompatActivity {
         });
         editText = (EditText) findViewById(R.id.editText);
         editText.setError("Under utveckling");
+
+    }
+
+    public void toastMsg(String msg) {
+
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+
+    }
+
+    public void displayToastMsg(View v) {
+
+        toastMsg("Funktionen är under utveckling");
 
     }
     private void selectFragment(MenuItem item) {
