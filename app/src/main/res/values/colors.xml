@@ -12,5 +12,6 @@
         <color name="red">#FFF61511</color>
         <color name="green">#FF1FBE22</color>
         <color name="blue">#FF3A64BF</color>
+        <color name="tintItem">#FFABB2C1</color>
 
     </resources>

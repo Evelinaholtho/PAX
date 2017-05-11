@@ -22,7 +22,7 @@
     <string name="title_settings">Inställningar</string>
 
     <!-- Strings related to bottombar -->
-    <string name="bookings">                                       Mina paxningar</string>
+    <string name="bookings">   Mina paxningar</string>
     <string name="my_favorits">   Favorit rum</string>
     <string name="latest_bookings">   Senaste paxningar</string>
 
