@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -16,50 +19,88 @@ import java.util.List;
 
 public class PaxAdapter extends ArrayAdapter {
 
-    List<Room> roomList;
+    // XML-file about how textView in list should look like.
+    public static final int TEXT_VIEW_RES = R.layout.textview_pax;
+
+    private static final String LOG_TAG = PaxAdapter.class.getSimpleName();
+
+    List<Room> list;
 
     Context context;
 
-
     public PaxAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List objects) {
         super(context, resource, objects);
+        Log.d(LOG_TAG, "Pax()");
         this.context = context;
-        roomList = objects;
+        list = objects;
     }
 
-    @NonNull
+    @Nullable
     @Override
     public Room getItem(int position) {
-        return roomList.get(position);
+        Log.d(LOG_TAG, "getItem()");
+        return list.get(position);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Log.d(LOG_TAG, "getView()");
 
         int color0 = Color.RED;
         int color1 = Color.GREEN;
         int defaultColor = Color.GRAY;
 
-        if(convertView == null) {
-            convertView = new TextView(context);
-            convertView.setBackgroundColor(defaultColor);
-        } else if (StorerFactory.getInstance().isPaxedNow(roomList.get(position).getRoomID()))
-            convertView.setBackgroundColor(color0);
-        else
-            convertView.setBackgroundColor(color1);
+        View view = null;
+
+
+        if (convertView == null) {
+            Log.d(LOG_TAG, "View is null!");
+            LayoutInflater inflater = (LayoutInflater) parent.getContext()
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(TEXT_VIEW_RES, null);
+        } else {
+            view = convertView;
+        }
 
         /*
-        switch (StorerFactory.getInstance().isPaxedNow(roomList.get(position).getRoomID())) {
-            case false:
-                convertView.setBackgroundColor(color0);
+        if (convertView == null) {
+            Log.d(LOG_TAG, "View is null!");
+            view = new TextView(context);
+        } else {
+            view = convertView;
+        }
+
+        */
+
+        Room r = getItem(position);
+
+        TextView tv = (TextView)view;
+        tv.setHeight(50);
+        tv.setText(r.toString());
+
+        boolean roomPaxed = StorerFactory.getInstance().isPaxedNow(r.getRoomID());
+
+        switch (booleanToInt(roomPaxed)) {
+            case 1:
+                Log.d(LOG_TAG, "Room: " + r.getRoomName() + " is paxed!");
+                view.setBackgroundColor(color0);
                 break;
-            case true:
-                convertView.setBackgroundColor(color1);
+            case 0:
+                Log.d(LOG_TAG, "Room: " + r.getRoomName() + " is available!");
+                view.setBackgroundColor(color1);
                 break;
             default:
-                convertView.setBackgroundColor(defaultColor);
+                Log.d(LOG_TAG, "Room: " + r.getRoomName() + " is default.");
+                view.setBackgroundColor(defaultColor);
         }
-        */
-        return convertView;
+        return view;
+    }
+
+    private int booleanToInt(boolean b){
+        Log.d(LOG_TAG, "booleanToInt()");
+        if(b)
+            return 1;
+        else
+            return 0;
     }
 }

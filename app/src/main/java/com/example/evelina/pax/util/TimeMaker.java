@@ -24,4 +24,8 @@ public class TimeMaker {
         Log.d(LOG_TAG, "getFormat()");
         return new SimpleDateFormat("EEEE d MMMM HH:mm");
     }
+    public static SimpleDateFormat getFormat2(){
+        Log.d(LOG_TAG, "getFormat()");
+        return new SimpleDateFormat("EEEE d MMMM");
+    }
 }

@@ -51,8 +51,8 @@ public class HardcodedStorer implements Storer {
 
         for(Pax p : paxList){
             if(p.getRoomID() == roomID
-                    && p.getStartDate().after(TimeMaker.getCalendar())
-                    && p.getEndDate().before((TimeMaker.getCalendar()))){
+                    && p.getStartDate().before(TimeMaker.getCalendar())
+                    && p.getEndDate().after((TimeMaker.getCalendar()))){
                 isPaxedNow = true;
             }
         }
