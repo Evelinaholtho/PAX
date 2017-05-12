@@ -17,8 +17,9 @@
         app:menu="@menu/navigation"
         app:itemIconTint="@color/tintItem"
         app:itemTextColor="@color/tintItem"
+        app:layout_constraintRight_toRightOf="parent" />
 
-        />
+
 
     <LinearLayout
         android:layout_width="325dp"

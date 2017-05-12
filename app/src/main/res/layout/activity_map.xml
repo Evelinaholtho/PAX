@@ -17,7 +17,7 @@
         app:menu="@menu/navigation"
         app:itemIconTint="@color/tintItem"
         app:itemTextColor="@color/tintItem"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/textView"
