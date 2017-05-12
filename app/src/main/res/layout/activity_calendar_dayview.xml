@@ -9,29 +9,80 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="325dp"
-        android:layout_height="377dp"
+        android:layout_width="383dp"
+        android:layout_height="464dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.494">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_view">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:text="@string/date"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+                app:layout_constraintHorizontal_bias="0.535"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/room_name"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/room_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/roomName"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_bias="0.535"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/favotiteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:onClick="displayToastMsg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.741"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@android:drawable/btn_star" />
+
+            <TextView
                 android:id="@+id/textView0800"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="71dp"
                 android:gravity="center|fill"
                 android:text="08:00"
                 android:textColor="@color/colorWhite"
@@ -44,16 +95,17 @@
                 android:layout_height="70dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="71dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
                 app:layout_constraintLeft_toRightOf="@+id/textView0800"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5" />
 
             <TextView
                 android:id="@+id/textView0900"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -78,7 +130,7 @@
 
             <TextView
                 android:id="@+id/textView1000"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -97,14 +149,14 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toRightOf="@+id/textView1000"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button09" />
 
             <TextView
                 android:id="@+id/textView1100"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -123,14 +175,14 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toRightOf="@+id/textView1100"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button10" />
 
             <TextView
                 android:id="@+id/textView1200"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -149,14 +201,14 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toRightOf="@+id/textView1200"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button11" />
 
             <TextView
                 android:id="@+id/textView1300"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -175,14 +227,13 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.43"
                 app:layout_constraintLeft_toRightOf="@+id/textView1300"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button12" />
 
             <TextView
                 android:id="@+id/textView1400"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -201,14 +252,14 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toRightOf="@+id/textView1400"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button13" />
 
             <TextView
                 android:id="@+id/textView1500"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -227,16 +278,15 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.884"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/textView1400"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toRightOf="@+id/textView1500"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button14" />
 
 
             <TextView
                 android:id="@+id/textView1600"
-                android:layout_width="45dp"
+                android:layout_width="0dp"
                 android:layout_height="27dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="43dp"
@@ -255,8 +305,7 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/availeble"
                 android:text="@string/avalible"
-                app:layout_constraintHorizontal_bias="0.884"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toRightOf="@+id/textView1600"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button15" />
@@ -275,56 +324,7 @@
         app:menu="@menu/navigation"
         app:itemIconTint="@color/tintItem"
         app:itemTextColor="@color/tintItem"
-        />
-
-    <TextView
-        android:id="@+id/room_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/roomName"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.535" />
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        android:text="@string/date"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/room_name"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/favotiteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:srcCompat="@android:drawable/btn_star"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.741"
-        android:onClick="displayToastMsg"/>
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
