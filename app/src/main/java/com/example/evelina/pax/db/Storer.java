@@ -11,6 +11,7 @@ public interface Storer {
 
     List<Pax> getAllPax() throws NullPointerException;
     List<Pax> getPaxOfDay(Calendar date, int roomID) throws NullPointerException;
+    Pax getPaxNow(int roomID);
     void storePax (Pax p);
     void deletePax (Pax p);
     List<Room> getBuildingRooms(int buildingID) throws NullPointerException;

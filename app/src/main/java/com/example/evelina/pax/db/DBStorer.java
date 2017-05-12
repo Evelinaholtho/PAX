@@ -54,6 +54,11 @@ public class DBStorer implements Storer {
     }
 
     @Override
+    public Pax getPaxNow(int roomID) {
+        return null;
+    }
+
+    @Override
     public void storePax(Pax p) {
         Log.d(LOG_TAG, "storePax()");
 

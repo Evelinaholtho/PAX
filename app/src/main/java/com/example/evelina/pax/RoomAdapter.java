@@ -48,6 +48,7 @@ public class RoomAdapter extends ArrayAdapter {
 
         int color0 = Color.RED;
         int color1 = Color.GREEN;
+        int color2 = Color.BLUE;
         int defaultColor = Color.GRAY;
 
         View view = null;
@@ -82,15 +83,19 @@ public class RoomAdapter extends ArrayAdapter {
 
         switch (booleanToInt(roomPaxed)) {
             case 1:
-                Log.d(LOG_TAG, "Room: " + r.getRoomName() + " is paxed!");
-                view.setBackgroundColor(color0);
+                try {
+                    if (StorerFactory.getInstance().getPaxNow(r.getRoomID()).getUserName().equalsIgnoreCase(LoginActivity.ACTIVE_USER))
+                        view.setBackgroundColor(color2);
+                    else
+                        view.setBackgroundColor(color0);
+                }catch(NullPointerException npe){
+
+                }
                 break;
             case 0:
-                Log.d(LOG_TAG, "Room: " + r.getRoomName() + " is available!");
                 view.setBackgroundColor(color1);
                 break;
             default:
-                Log.d(LOG_TAG, "Room: " + r.getRoomName() + " is default.");
                 view.setBackgroundColor(defaultColor);
         }
         return view;

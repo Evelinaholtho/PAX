@@ -59,6 +59,19 @@ public class HardcodedStorer implements Storer {
         return isPaxedNow;
     }
 
+    @Override
+    public Pax getPaxNow(int roomID) {
+        Log.d(LOG_TAG, "getPaxNow()");
+
+        for(Pax p : paxList){
+            if(p.getRoomID() == roomID
+                    && p.getStartDate().get(Calendar.HOUR_OF_DAY) == TimeMaker.getCalendar().get(Calendar.HOUR_OF_DAY)){
+                return p;
+            }
+        }
+        return null;
+    }
+
     // Populate list of pax
     private void populatePaxList() {
         Log.d(LOG_TAG, "populatePaxList()");

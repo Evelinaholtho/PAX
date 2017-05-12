@@ -9,10 +9,10 @@ public class Tester {
     public static void populate(){
 
         StorerFactory.getInstance().initLists();
-        StorerFactory.getInstance().storePax(Pax.getInstance(1, 1, TimeMaker.getCalendar()));
+        StorerFactory.getInstance().storePax(Pax.getInstance(2, 1, TimeMaker.getCalendar()));
         StorerFactory.getInstance().storePax(Pax.getInstance(1, 3, TimeMaker.getCalendar()));
-        StorerFactory.getInstance().storePax(Pax.getInstance(1, 10, TimeMaker.getCalendar()));
-        StorerFactory.getInstance().storePax(Pax.getInstance(1, 11, TimeMaker.getCalendar()));
+        StorerFactory.getInstance().storePax(Pax.getInstance(2, 10, TimeMaker.getCalendar()));
+        StorerFactory.getInstance().storePax(Pax.getInstance(2, 11, TimeMaker.getCalendar()));
         StorerFactory.getInstance().storePax(Pax.getInstance(1, 12, TimeMaker.getCalendar()));
     }
 }
