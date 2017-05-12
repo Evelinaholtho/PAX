@@ -11,115 +11,132 @@
     tools:layout_editor_absoluteX="0dp">
 
 
-    <TextView
-        android:id="@+id/textView_myBookings"
-        android:text="   Mina bokningar"
-        android:layout_marginTop="16dp"
-
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/rounded_corners"
-        android:gravity="center_vertical"
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp"
-        android:drawableLeft="@drawable/ic_check_black_36dp"
-
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_myFavorits"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corners"
-        android:drawableLeft="@drawable/ic_star_yellow_600_36dp"
-        android:gravity="center_vertical"
-        android:text="   Favoritrum"
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView_myBookings" />
-
-    <TextView
-        android:id="@+id/textView_recentBookings"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corners"
-        android:drawableLeft="@drawable/ic_history_black_24dp"
-        android:gravity="center_vertical"
-        android:text="   Tidigare paxningar"
-
-        android:textColor="@color/colorBlack"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView_myFavorites"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <ListView
-        android:id="@+id/listView_Recentbookings"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/rounded_corners_listview"
         app:layout_constraintBottom_toTopOf="@+id/navigation_view"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_recentBookings"
         app:layout_constraintVertical_bias="0.0"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
-
-    <ListView
-        android:id="@+id/listView_myFavorites"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/rounded_corners_listview"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_myFavorits">
-
-
-    </ListView>
-
-    <ListView
-        android:id="@+id/listView_myBookings"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/rounded_corners_listview"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_myBookings" />
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/listView_myBookings"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_corners_listview"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_myBookings" />
+
+            <ListView
+                android:id="@+id/listView_myFavorites"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_corners_listview"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_myFavorits">
+
+
+            </ListView>
+
+
+            <TextView
+                android:id="@+id/textView_myFavorits"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_corners"
+                android:drawableLeft="@drawable/ic_star_yellow_600_36dp"
+                android:gravity="center_vertical"
+                android:text="   Favoritrum"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listView_myBookings" />
+
+            <TextView
+                android:id="@+id/textView_recentBookings"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_corners"
+                android:drawableLeft="@drawable/ic_history_black_36dp"
+                android:gravity="center_vertical"
+                android:text="   Tidaigare paxningar"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/listView_myFavorites" />
+
+            <TextView
+                android:id="@+id/textView_myBookings"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_corners"
+                android:drawableLeft="@drawable/ic_check_black_36dp"
+                android:gravity="center_vertical"
+                android:text="   Mina bokningar"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="32dp" />
+
+            <ListView
+                android:id="@+id/listView_Recentbookings"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/rounded_corners_listview"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_recentBookings"
+                app:layout_constraintVertical_bias="0.0" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation_view"
@@ -131,7 +148,7 @@
         app:menu="@menu/navigation"
         app:itemIconTint="@color/tintItem"
         app:itemTextColor="@color/tintItem"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
