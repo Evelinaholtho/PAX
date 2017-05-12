@@ -2,6 +2,7 @@ package com.example.evelina.pax.domain;
 
 import android.util.Log;
 
+import com.example.evelina.pax.LoginActivity;
 import com.example.evelina.pax.db.StorerFactory;
 import com.example.evelina.pax.util.TimeMaker;
 
@@ -26,6 +27,7 @@ public class Pax {
     }
 
     private int paxID;
+    private String userName;
     private int userID;
     private int roomID;
     private Calendar startDate;
@@ -35,6 +37,7 @@ public class Pax {
         Log.d(LOG_TAG, "Pax()");
 
         this.paxID = generatePaxID();
+        userName = LoginActivity.getUserName(userID);
         this.userID = userID;
         this.roomID = roomID;
         this.startDate = startDate;
@@ -91,5 +94,9 @@ public class Pax {
     public int getRoomID(){
         Log.d(LOG_TAG, "getRoomID()");
         return roomID;
+    }
+    public String getUserName(){
+        Log.d(LOG_TAG, "getUserName()");
+        return userName;
     }
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import com.example.evelina.pax.domain.Pax;
 import com.example.evelina.pax.domain.Room;
 
+import java.util.Calendar;
 import java.util.List;
 
 // Stores pax in SQLite database
@@ -44,6 +45,11 @@ public class DBStorer implements Storer {
     @Override
     public List<Pax> getAllPax() throws NullPointerException {
         Log.d(LOG_TAG, "getAllPax()");
+        return null;
+    }
+
+    @Override
+    public List<Pax> getPaxOfDay(Calendar date, int roomID) throws NullPointerException {
         return null;
     }
 

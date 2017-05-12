@@ -40,6 +40,23 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
+    public static String ACTIVE_USER;
+    public static int ACTIVE_USER_ID;
+
+    private static final String USER_1 = "UserOne";
+    private static final String USER_1_PWD = "123";
+    private static final String USER_2 = "UserTwo";
+    private static final String USER_2_PWD = "123";
+
+
+    public static String getUserName(int userID){
+        if(userID == 1)
+            return USER_1;
+        else if(userID == 2)
+            return USER_2;
+        return "";
+    }
+
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -190,8 +207,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            ACTIVE_USER = email;
+            setActiveUserID();
             startActivity(intent);
         }
+    }
+
+    private void setActiveUserID() {
+        if(ACTIVE_USER.equals(USER_1))
+            ACTIVE_USER_ID = 1;
+        else if(ACTIVE_USER.equals(USER_2))
+            ACTIVE_USER_ID = 2;
     }
 
     private boolean isEmailValid(String email) {

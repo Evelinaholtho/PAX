@@ -1,7 +1,6 @@
 package com.example.evelina.pax;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -9,14 +8,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.evelina.pax.db.Storer;
 import com.example.evelina.pax.db.StorerFactory;
-import com.example.evelina.pax.domain.Room;
 
 public class AvailableRooms extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
@@ -39,7 +36,7 @@ public class AvailableRooms extends AppCompatActivity {
         buildingNameText.setText(buildingName);
 
         //Fill listview with rooms in specified building.
-        final ListAdapter listAdapter = new PaxAdapter(this, android.R.layout.simple_list_item_1, storer.getBuildingRooms(buildingName));
+        final ListAdapter listAdapter = new RoomAdapter(this, android.R.layout.simple_list_item_1, storer.getBuildingRooms(buildingName));
         listView = (ListView) findViewById(R.id.ListAvailableRooms);
         listView.setAdapter(listAdapter);
 

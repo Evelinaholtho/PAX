@@ -17,18 +17,18 @@ import com.example.evelina.pax.domain.Room;
 
 import java.util.List;
 
-public class PaxAdapter extends ArrayAdapter {
+public class RoomAdapter extends ArrayAdapter {
 
     // XML-file about how textView in list should look like.
     public static final int TEXT_VIEW_RES = R.layout.textview_pax;
 
-    private static final String LOG_TAG = PaxAdapter.class.getSimpleName();
+    private static final String LOG_TAG = RoomAdapter.class.getSimpleName();
 
     List<Room> list;
 
     Context context;
 
-    public PaxAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List objects) {
+    public RoomAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List objects) {
         super(context, resource, objects);
         Log.d(LOG_TAG, "Pax()");
         this.context = context;
