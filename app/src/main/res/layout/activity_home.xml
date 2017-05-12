@@ -70,7 +70,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView_myFavorites" />
+        app:layout_constraintTop_toBottomOf="@+id/listView_myFavorites"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ListView
         android:id="@+id/listView_Recentbookings"
@@ -79,14 +81,15 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
         android:background="@drawable/rounded_corners_listview"
         app:layout_constraintBottom_toTopOf="@+id/navigation_view"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_recentBookings"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ListView
         android:id="@+id/listView_myFavorites"
@@ -96,7 +99,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
         android:background="@drawable/rounded_corners_listview"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -113,7 +115,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="-15dp"
         android:background="@drawable/rounded_corners_listview"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -122,18 +123,14 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorMenu"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:menu="@menu/navigation"
         app:itemIconTint="@color/tintItem"
+        app:itemTextColor="@color/tintItem"
         />
 
 
