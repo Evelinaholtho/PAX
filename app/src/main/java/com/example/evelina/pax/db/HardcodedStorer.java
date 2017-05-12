@@ -117,6 +117,22 @@ public class HardcodedStorer implements Storer {
         return paxList;
     }
 
+    @Override
+    public List<Pax> getPaxOfDay(Calendar date, int roomID) throws NullPointerException {
+
+        Log.d(LOG_TAG, "getPaxOfDay()");
+
+        List<Pax> dayList = new ArrayList<>();
+        for(Pax p : paxList) {
+            if (p.getStartDate().get(Calendar.HOUR_OF_DAY) == date.get(Calendar.HOUR_OF_DAY)
+                    && p.getRoomID() == roomID){
+                dayList.add(p);
+                Log.d(LOG_TAG, p.getStartDate() + " added!");
+            }
+        }
+        return dayList;
+    }
+
     // Get list of all rooms in building of specified building ID.
     @Override
     public List<Room> getBuildingRooms(int buildingID) {

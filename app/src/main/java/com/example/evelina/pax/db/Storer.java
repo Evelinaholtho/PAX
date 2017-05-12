@@ -3,12 +3,14 @@ package com.example.evelina.pax.db;
 import com.example.evelina.pax.domain.Pax;
 import com.example.evelina.pax.domain.Room;
 
+import java.util.Calendar;
 import java.util.List;
 
 // Interface telling extending classes which methods to implement.
 public interface Storer {
 
     List<Pax> getAllPax() throws NullPointerException;
+    List<Pax> getPaxOfDay(Calendar date, int roomID) throws NullPointerException;
     void storePax (Pax p);
     void deletePax (Pax p);
     List<Room> getBuildingRooms(int buildingID) throws NullPointerException;
@@ -28,4 +30,6 @@ public interface Storer {
     void initLists();
 
     boolean isPaxedNow(int roomID);
+
+
 }
