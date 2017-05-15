@@ -64,6 +64,10 @@ public class AvailableRooms extends AppCompatActivity {
         });
     }
 
+    public void onBackPress(View v){
+        this.finish();
+    }
+
     private void selectFragment(MenuItem item) {
         ActivitySwitcher.switchActivity(this, item);
     }
