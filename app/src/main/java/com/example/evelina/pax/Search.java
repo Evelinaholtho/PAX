@@ -34,7 +34,7 @@ public class Search extends AppCompatActivity {
 
         });
         editText = (EditText) findViewById(R.id.editText);
-        editText.setError("Under utveckling");
+       // editText.setError("Under utveckling");
 
     }
 
