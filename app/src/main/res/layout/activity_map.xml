@@ -43,13 +43,13 @@
         android:layout_marginTop="8dp"
         android:contentDescription="@string/title_map"
         app:layout_constraintBottom_toTopOf="@+id/navigation_view"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.307"
 
-        app:srcCompat="@drawable/googlemap"
-        app:layout_constraintHorizontal_bias="0.545" />
+        app:layout_constraintVertical_bias="0.307"
+        app:srcCompat="@drawable/googlemap2" />
 
     <ImageButton
         android:id="@+id/imageButtonPatricia"

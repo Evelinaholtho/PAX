@@ -1,5 +1,6 @@
 package com.example.evelina.pax;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +49,12 @@ public class Settings extends AppCompatActivity {
         ActivitySwitcher.switchActivity(this, item);
 
     }
+     public void signOut(View v){
+         Intent intent = new Intent(this, LoginActivity.class);
+         startActivity(intent);
+
+     }
+     }
 
 
-}
+
