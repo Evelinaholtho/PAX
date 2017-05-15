@@ -23,6 +23,7 @@ public class AvailableRooms extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_rooms);
+        getSupportActionBar().setTitle("Rum");
 
         //Get access to db.
         Storer storer = StorerFactory.getInstance();

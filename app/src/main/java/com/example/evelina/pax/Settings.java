@@ -15,6 +15,9 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        getSupportActionBar().setTitle("  Inställningar");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_settings_black_24dp);
 
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
         mBottomNav.getMenu().getItem(4).setChecked(true);

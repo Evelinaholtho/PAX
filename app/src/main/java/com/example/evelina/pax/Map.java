@@ -19,7 +19,9 @@ public class Map extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-
+        getSupportActionBar().setTitle("  Rum i närheten");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_map_black_24dp);
         buttonPatricia=(ImageButton) findViewById(R.id.imageButtonPatricia);
         buttonKuggen=(ImageButton) findViewById(R.id.imageButtonKuggen);
 

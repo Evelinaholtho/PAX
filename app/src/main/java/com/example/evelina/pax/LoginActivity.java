@@ -162,7 +162,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-           Intent intent = new Intent(this, Home.class);
+
         if (mAuthTask != null) {
             return;
         }
@@ -209,7 +209,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
             ACTIVE_USER = email;
             setActiveUserID();
-            startActivity(intent);
+
         }
     }
 
@@ -222,9 +222,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        //return email.contains("@");
-        return true;
+
+           // return email.contains("@");
+            return true;
+
     }
+
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
@@ -366,7 +369,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                finish();
+                Intent intent = new Intent(LoginActivity.this, Home.class);
+                startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

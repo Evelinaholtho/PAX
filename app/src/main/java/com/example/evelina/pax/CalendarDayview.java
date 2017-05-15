@@ -18,8 +18,9 @@ ImageButton favoriteButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_dayview);
+        getSupportActionBar().setTitle("Kalender");
 
-        
+
 
         //Get data from the Map-activity on which building this activity should show.
         Bundle roomData = getIntent().getExtras();

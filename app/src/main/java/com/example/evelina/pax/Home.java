@@ -1,5 +1,6 @@
 package com.example.evelina.pax;
 
+import android.app.ActionBar;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -22,8 +23,16 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(LOG_TAG, "onCreate()");
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getSupportActionBar().setTitle("  Hem");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_home_black_24dp);
+
+
+
+
 
         // Get access to db.
         Storer storer = StorerFactory.getInstance();
@@ -40,6 +49,7 @@ public class Home extends AppCompatActivity {
                 return true;
             }
         });
+
 
         // Initialize lists with pax
         ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getAllPax());

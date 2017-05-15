@@ -13,6 +13,9 @@ public class Group extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
+        getSupportActionBar().setTitle("  Mina grupper");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_group_black_24dp);
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
         mBottomNav.getMenu().getItem(3).setChecked(true);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
