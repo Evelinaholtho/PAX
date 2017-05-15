@@ -52,10 +52,10 @@
                     android:foregroundTint="@color/colorWhite"
                     android:hint="Byggnad/Våning/Rumsnamn"
                     android:inputType="text"
-
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorWhite"
-                    app:backgroundTint="@color/colorWhite" />
+                    app:backgroundTint="@color/colorWhite"
+                    android:onClick="displayToastMsg"/>
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
     </ScrollView>

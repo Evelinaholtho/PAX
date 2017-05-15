@@ -1,7 +1,10 @@
 package com.example.evelina.pax;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,12 +17,25 @@ import com.example.evelina.pax.util.TimeMaker;
 
 public class CalendarDayview extends AppCompatActivity {
 ImageButton favoriteButton;
+    private BottomNavigationView mBottomNav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_dayview);
         getSupportActionBar().setTitle("Kalender");
 
+        mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
+        mBottomNav.getMenu().getItem(2).setChecked(true);
+        mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectFragment(item);
+                return true;
+            }
+
+
+        });
 
 
         //Get data from the Map-activity on which building this activity should show.
@@ -45,6 +61,11 @@ ImageButton favoriteButton;
 
 
     }
+
+    private void selectFragment(MenuItem item) {
+        ActivitySwitcher.switchActivity(this, item);
+
+    }
     public void toastMsg(String msg) {
 
         Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
@@ -55,9 +76,6 @@ ImageButton favoriteButton;
     public void displayToastMsg(View v) {
 
         toastMsg("Funktionen är under utveckling");
-
     }
-
-
     }
 

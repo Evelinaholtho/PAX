@@ -16,6 +16,8 @@ public class Group extends AppCompatActivity {
         getSupportActionBar().setTitle("  Mina grupper");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_group_black_24dp);
+
+
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
         mBottomNav.getMenu().getItem(3).setChecked(true);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
