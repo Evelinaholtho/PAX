@@ -33,7 +33,7 @@ public class Search extends AppCompatActivity {
             }
 
         });
-        editText = (EditText) findViewById(R.id.editText);
+        //editText = (EditText) findViewById(R.id.editText);
        // editText.setError("Under utveckling");
 
     }
