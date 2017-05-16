@@ -63,48 +63,6 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/TextViewGroup"
-                android:layout_width="0dp"
-                android:layout_height="111dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/rounded_corners_listview"
-
-                android:text="@string/names"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel"
-                app:layout_constraintVertical_bias="0.0" />
-
-            />
-
-            <ImageButton
-                android:id="@+id/imageButtonDelete"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginTop="8dp"
-                android:background="@android:color/transparent"
-                android:cropToPadding="false"
-                android:elevation="0dp"
-                android:onClick="displayToastMsg"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/TextViewGroup"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintLeft_toLeftOf="@+id/TextViewGroup"
-                app:layout_constraintRight_toRightOf="@+id/TextViewGroup"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabel"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/ic_cancel_red_700_24dp" />
-
-            <TextView
                 android:id="@+id/textViewLabel"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
@@ -115,8 +73,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_corners"
-                android:gravity="center"
-                android:text="   Mary Shelley"
+                android:gravity="center_vertical"
+                android:text="          Mary Shelley"
+
+                android:textColor="@color/tintItem"
+                android:textSize="18dp"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -127,6 +88,67 @@
                 tools:layout_constraintLeft_creator="1"
                 tools:layout_constraintRight_creator="1" />
 
+            <TextView
+                android:id="@+id/TextViewGroup"
+                android:layout_width="0dp"
+                android:layout_height="128dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/rounded_corners_listview"
+
+                android:text="@string/names"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabel"
+                app:layout_constraintVertical_bias="0.0" />
+
+            />
+
+            <ImageButton
+                android:id="@+id/imageButtonDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:cropToPadding="false"
+                android:elevation="0dp"
+                android:onClick="displayToastMsg"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/TextViewGroup"
+                app:layout_constraintHorizontal_bias="0.948"
+                app:layout_constraintLeft_toLeftOf="@+id/TextViewGroup"
+                app:layout_constraintRight_toRightOf="@+id/TextViewGroup"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabel"
+                app:layout_constraintVertical_bias="0.916"
+                app:srcCompat="@drawable/ic_cancel_red_700_24dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="8dp"
+                android:onClick="paxaRum"
+                android:text="Paxa rum"
+                android:textColor="@color/colorWhite"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/TextViewGroup"
+                app:layout_constraintHorizontal_bias="0.82"
+                app:layout_constraintLeft_toLeftOf="@+id/TextViewGroup"
+                app:layout_constraintRight_toLeftOf="@+id/imageButtonDelete"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabel"
+                app:layout_constraintVertical_bias="0.97" />
+
             <ImageView
                 android:id="@+id/imageViewGroup"
                 android:layout_width="30dp"
@@ -136,12 +158,30 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textViewLabel"
-                app:layout_constraintHorizontal_bias="0.305"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/textViewLabel"
                 app:layout_constraintRight_toRightOf="@+id/textViewLabel"
                 app:layout_constraintTop_toTopOf="@+id/textViewLabel"
                 app:layout_constraintVertical_bias="1.0"
                 app:srcCompat="@drawable/ic_group_grey_700_24dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:onClick="displayToastMsg"
+                app:layout_constraintBottom_toBottomOf="@+id/TextViewGroup"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toRightOf="@+id/textView8"
+                app:layout_constraintRight_toLeftOf="@+id/imageButtonDelete"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabel"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_mode_edit_white_24dp" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
