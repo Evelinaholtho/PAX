@@ -5,6 +5,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class Group extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
@@ -31,9 +33,17 @@ public class Group extends AppCompatActivity {
         });
     }
 
-
     private void selectFragment(MenuItem item) {
         ActivitySwitcher.switchActivity(this, item);
-
     }
+
+    public void toastMsg(String msg) {
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    public void displayToastMsg(View v) {
+        toastMsg("Funktionen är under utveckling");
+    }
+
 }

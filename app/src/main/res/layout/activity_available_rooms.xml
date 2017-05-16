@@ -55,6 +55,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/rounded_corners"
                 android:gravity="center"
+                android:labelFor="@+id/ListAvailableRooms"
                 android:text="@string/text_availebleRooms"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"

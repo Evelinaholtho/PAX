@@ -6,7 +6,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorMenu</item>
         <item name="colorPrimaryDark">@color/blue</item>
-        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorMenu</item>
     </style>
 
 </resources>
