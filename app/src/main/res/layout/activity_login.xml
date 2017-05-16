@@ -93,7 +93,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_corners"
                 android:text="@string/action_sign_in"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/tintItem"
                 android:textStyle="bold"
 
 

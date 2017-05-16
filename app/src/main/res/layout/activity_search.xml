@@ -50,12 +50,12 @@
                     android:layout_height="61dp"
                     android:drawableLeft="@drawable/ic_search_grey_500_24dp"
                     android:foregroundTint="@color/colorWhite"
-                    android:hint="Byggnad/Våning/Rumsnamn"
+                    android:hint="   Byggnad/Våning/Rumsnamn"
                     android:inputType="text"
+                    android:onClick="displayToastMsg"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorWhite"
-                    app:backgroundTint="@color/colorWhite"
-                    android:onClick="displayToastMsg"/>
+                    app:backgroundTint="@color/colorWhite" />
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
     </ScrollView>

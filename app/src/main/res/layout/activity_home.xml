@@ -62,57 +62,89 @@
             <TextView
                 android:id="@+id/textView_myFavorits"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_corners"
-                android:drawableLeft="@drawable/ic_star_yellow_600_24dp"
                 android:gravity="center_vertical"
-                android:text="   Favoritrum"
-                android:textColor="@color/colorBlack"
+                android:text="           Favoritrum"
+                android:textColor="@color/tintItem"
                 android:textSize="18sp"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/listView_myBookings" />
 
+            <ImageButton
+                android:id="@+id/imageButtonFvoriter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_star_yellow_600_24dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="@+id/textView_myFavorits"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="@+id/textView_myFavorits"
+                app:layout_constraintTop_toTopOf="@+id/textView_myFavorits"
+                android:layout_marginTop="0dp"
+                app:layout_constraintHorizontal_bias="0.022"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_myFavorits"
+                android:layout_marginBottom="0dp" />
+
             <TextView
                 android:id="@+id/textView_recentBookings"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_corners"
-                android:drawableLeft="@drawable/ic_history_black_24dp"
+
                 android:gravity="center_vertical"
-                android:text="   Tidigare paxningar"
-                android:textColor="@color/colorBlack"
+                android:text="          Tidigare paxningar"
+                android:textColor="@color/tintItem"
                 android:textSize="18sp"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/listView_myFavorites" />
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_history_grey_600_24dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="@+id/textView_recentBookings"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/listView_Recentbookings"
+                app:layout_constraintTop_toTopOf="@+id/textView_recentBookings"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="@+id/textView_recentBookings"
+                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintVertical_bias="0.5" />
 
             <TextView
                 android:id="@+id/textView_myBookings"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="30dp"
 
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:background="@drawable/rounded_corners"
-                android:drawableLeft="@drawable/ic_check_black_24dp"
+
                 android:gravity="center_vertical"
-                android:text="   Mina paxningar"
-                android:textColor="@color/colorBlack"
+                android:text="           Mina paxningar"
+                android:textColor="@color/tintItem"
                 android:textSize="18sp"
 
                 app:layout_constraintHorizontal_bias="0.0"
@@ -120,6 +152,22 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="32dp" />
+
+            <ImageButton
+                android:id="@+id/imageButtonMinaPax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_myBookings"
+                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintLeft_toLeftOf="@+id/textView_myBookings"
+                app:layout_constraintRight_toRightOf="@+id/textView_myBookings"
+                app:layout_constraintTop_toTopOf="@+id/textView_myBookings"
+                app:srcCompat="@drawable/ic_check_grey_600_24dp" />
 
             <ListView
                 android:id="@+id/listView_Recentbookings"

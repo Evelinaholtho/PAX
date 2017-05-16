@@ -1,9 +1,12 @@
 package com.example.evelina.pax;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +25,7 @@ import java.util.List;
 public class CalendarDayview extends AppCompatActivity {
 
     private static final String LOG_TAG = CalendarDayview.class.getSimpleName();
-
+    private BottomNavigationView mBottomNav;
     private static final String TEXT_PAXAT = "Paxat";
     private static final String TEXT_MITT_PAX = "Mitt pax";
 
@@ -161,6 +164,19 @@ public class CalendarDayview extends AppCompatActivity {
                 makeAPax(16);
             }
         });
+
+// För att kunna naviger med hjälp av menyrad
+        mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
+        mBottomNav.getMenu().getItem(2).setChecked(true);
+        mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectFragment(item);
+                return true;
+            }
+
+
+        });
     }
 
     private void cancelPax(int hour) {
@@ -194,6 +210,14 @@ public class CalendarDayview extends AppCompatActivity {
         paxTime.set(Calendar.HOUR_OF_DAY, hour);
         store.storePax(Pax.getInstance(LoginActivity.ACTIVE_USER_ID, store.getRoom(roomName).getRoomID(), paxTime));
         recreate();
+    }
+// tillbakaknapp
+    public void onBackPress(View v){
+        this.finish();
+    }
+
+    private void selectFragment(MenuItem item) {
+        ActivitySwitcher.switchActivity(this, item);
     }
 
     public void toastMsg(String msg) {
