@@ -124,4 +124,11 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+
+    <!-- Example settings for Group -->
+    <string name="maryShelley">Mary Shelley</string>
+    <string name="names" > \n\t Emil Ahnstedt \n\t Evelina Holth Österlund \n\t Maja Dzeko \n\t Emma Karlsson \n\t
+    Rebecca Kullenius</string>
+
+
 </resources>
