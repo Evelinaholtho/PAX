@@ -58,6 +58,7 @@
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
                     android:textColor="@color/colorWhite"
+                    android:textColorLink="@color/colorWhite"
                     android:textStyle="normal"
                     app:backgroundTint="@color/colorWhite" />
 
@@ -92,12 +93,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_corners"
+                android:enabled="false"
                 android:text="@string/action_sign_in"
                 android:textColor="@color/tintItem"
-                android:textStyle="bold"
 
 
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
