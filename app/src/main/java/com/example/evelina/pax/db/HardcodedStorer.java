@@ -2,6 +2,7 @@ package com.example.evelina.pax.db;
 
 import android.util.Log;
 
+import com.example.evelina.pax.LoginActivity;
 import com.example.evelina.pax.domain.Building;
 import com.example.evelina.pax.domain.Pax;
 import com.example.evelina.pax.domain.Room;
@@ -72,26 +73,23 @@ public class HardcodedStorer implements Storer {
         return null;
     }
 
+    @Override
+    public List<Pax> getPaxOfUser(int userID) {
+        Log.d(LOG_TAG, "getPaxOfUser()");
+        List<Pax> userPaxList = new ArrayList<>();
+        for(Pax p : paxList){
+            if(p.getUserID() == userID){
+                userPaxList.add(p);
+            }
+        }
+        return userPaxList;
+    }
+
     // Populate list of pax
     private void populatePaxList() {
         Log.d(LOG_TAG, "populatePaxList()");
 
         paxList = new ArrayList<>();
-
-        Calendar c = TimeMaker.getCalendar();
-        c.set(Calendar.HOUR_OF_DAY, 8);
-        //paxList.add(Pax.getInstance(1, 1, c));
-        Pax.getInstance(1, 1, c);
-
-        c = TimeMaker.getCalendar();
-        c.set(Calendar.HOUR_OF_DAY, 9);
-        //paxList.add(Pax.getInstance(1, 1, c));
-        Pax.getInstance(1, 1, c);
-
-        c = TimeMaker.getCalendar();
-        c.set(Calendar.HOUR_OF_DAY, 14);
-        //paxList.add(Pax.getInstance(1, 2, c));
-        Pax.getInstance(1, 2, c);
     }
 
     // Populate list of rooms
@@ -136,13 +134,20 @@ public class HardcodedStorer implements Storer {
         Log.d(LOG_TAG, "getPaxOfDay()");
 
         List<Pax> dayList = new ArrayList<>();
+        StringBuilder s = new StringBuilder("DAY PAX LIST\n");
         for(Pax p : paxList) {
-            if (p.getStartDate().get(Calendar.HOUR_OF_DAY) == date.get(Calendar.HOUR_OF_DAY)
+            /*
+            s.append(p.getStartDate().get(Calendar.DAY_OF_MONTH));
+            s.append(" =? " + date.get(Calendar.DAY_OF_MONTH));
+            s.append("\n" + p.getRoomID() + " =? ");
+            s.append(roomID + "\n");
+            */
+            if (p.getStartDate().get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH)
                     && p.getRoomID() == roomID){
                 dayList.add(p);
-                Log.d(LOG_TAG, p.getStartDate() + " added!");
             }
         }
+        //Log.d(LOG_TAG, s.toString());
         return dayList;
     }
 
@@ -206,6 +211,19 @@ public class HardcodedStorer implements Storer {
     public void deletePax(Pax p) {
         Log.d(LOG_TAG, "deletePax()");
         paxList.remove(p);
+    }
+
+    @Override
+    public void deletePax(int userID, int roomID, Calendar date) {
+        Log.d(LOG_TAG, "deletePax()");
+
+        for(Pax p : getPaxOfDay(date, roomID)){
+            if(p.getStartDate().get(Calendar.HOUR_OF_DAY) == date.get(Calendar.HOUR_OF_DAY) &&
+                    p.getUserID() == userID){
+                paxList.remove(p);
+            }
+        }
+
     }
 
     @Override

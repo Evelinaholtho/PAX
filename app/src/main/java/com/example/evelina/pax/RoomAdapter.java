@@ -76,7 +76,7 @@ public class RoomAdapter extends ArrayAdapter {
         Room r = getItem(position);
 
         TextView tv = (TextView)view;
-        tv.setHeight(50);
+        tv.setHeight(110);
         tv.setText(r.toString());
 
         boolean roomPaxed = StorerFactory.getInstance().isPaxedNow(r.getRoomID());

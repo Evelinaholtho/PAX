@@ -52,7 +52,7 @@ public class Pax {
 
     public String toString(){
         Log.d(LOG_TAG, "toString()");
-        return "Room ID: " + roomID + ". " + TimeMaker.getFormat().format(startDate.getTime())
+        return StorerFactory.getInstance().getRoom(roomID).getRoomName() + ". " + TimeMaker.getFormat().format(startDate.getTime())
                 + "-" + endDate.get(Calendar.HOUR_OF_DAY) + ":00";
     }
 

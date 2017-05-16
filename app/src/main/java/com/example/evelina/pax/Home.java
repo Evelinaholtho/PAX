@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.example.evelina.pax.db.Storer;
 import com.example.evelina.pax.db.StorerFactory;
+import com.example.evelina.pax.domain.Pax;
 
 public class Home extends AppCompatActivity {
     private static final String LOG_TAG = Home.class.getSimpleName();
@@ -52,9 +53,14 @@ public class Home extends AppCompatActivity {
 
 
         // Initialize lists with pax
-        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getAllPax());
+        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getPaxOfUser(LoginActivity.ACTIVE_USER_ID));
         listView = (ListView) findViewById(R.id.listView_myBookings);
         listView.setAdapter(listAdapter);
+
+        StringBuilder s = new StringBuilder("All Pax:");
+        for (Pax p : storer.getAllPax())
+            s.append("\n" + p.toString());
+        Log.d(LOG_TAG, s.toString());
 
     }
 

@@ -59,6 +59,11 @@ public class DBStorer implements Storer {
     }
 
     @Override
+    public List<Pax> getPaxOfUser(int userID) {
+        return null;
+    }
+
+    @Override
     public void storePax(Pax p) {
         Log.d(LOG_TAG, "storePax()");
 
@@ -67,6 +72,11 @@ public class DBStorer implements Storer {
     @Override
     public void deletePax(Pax p) {
         Log.d(LOG_TAG, "deletePax()");
+
+    }
+
+    @Override
+    public void deletePax(int userID, int roomID, Calendar date) {
 
     }
 

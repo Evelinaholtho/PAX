@@ -17,7 +17,7 @@ public class TimeMaker {
         Log.d(LOG_TAG, "getCalendar()");
         Calendar c = Calendar.getInstance(TimeZone.getTimeZone(TIME_ZONE));
         c.set(Calendar.MINUTE, 0);
-        return c;
+        return (Calendar) c.clone();
     }
 
     public static SimpleDateFormat getFormat(){
