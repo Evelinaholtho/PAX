@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static com.example.evelina.pax.R.drawable.buttondark;
+import static com.example.evelina.pax.R.drawable.buttonlight;
 
 /**
  * A login screen that offers login via email/password.
@@ -94,10 +96,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (s1.equals("") || s2.equals("")) {
             b.setEnabled(false);
         }
-        //if (s1.contains("@") & (s2.length() > 4)) { //s2.equals(4>0)
-          //  b.setEnabled(true);
-           // b.setBackgroundColor(getResources().getColor(R.color.blue));
-       // }
+       // if (s1.contains("") & (s2.length() > 2)) { //s2.equals(4>0)
+       //    b.setEnabled(true);
+        //    b.setBackgroundDrawable(getResources().getDrawable(buttonlight));
+        //}
         else {
             b.setEnabled(true);
 
