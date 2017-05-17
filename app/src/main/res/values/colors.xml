@@ -13,5 +13,6 @@
         <color name="green">#FF1FBE22</color>
         <color name="blue">#FF3A64BF</color>
         <color name="tintItem">#555659</color>
+        <color name="darButton">#FF8E8F94</color>
 
     </resources>
