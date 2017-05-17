@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.evelina.pax.db.Storer;
 import com.example.evelina.pax.db.StorerFactory;
@@ -67,4 +69,18 @@ public class Home extends AppCompatActivity {
         Log.d(LOG_TAG, "switchActivity()");
         ActivitySwitcher.switchActivity(this, item);
     }
+
+    public void toastMsg(String msg) {
+
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+
+    }
+
+    public void displayToastMsg(View v) {
+
+        toastMsg("Funktionen är under utveckling");
+
+    }
+
 }
