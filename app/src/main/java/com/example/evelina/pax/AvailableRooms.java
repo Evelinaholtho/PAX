@@ -18,6 +18,9 @@ import com.example.evelina.pax.db.StorerFactory;
 public class AvailableRooms extends AppCompatActivity {
     private BottomNavigationView mBottomNav;
     private ListView listView;
+    private ListAdapter listAdapter;
+    private Storer storer;
+    private String buildingName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +29,19 @@ public class AvailableRooms extends AppCompatActivity {
         getSupportActionBar().setTitle("Rum");
 
         //Get access to db.
-        Storer storer = StorerFactory.getInstance();
+        storer = StorerFactory.getInstance();
 
         //Get data from the Map-activity on which building this activity should show.
         Bundle buildingData = getIntent().getExtras();
-        String buildingName = buildingData.getString("building");
+        buildingName = buildingData.getString("building");
 
         // Set name of building
         TextView buildingNameText = (TextView)findViewById(R.id.idAtavailableRooms);
         buildingNameText.setText(buildingName);
 
         //Fill listview with rooms in specified building.
-        final ListAdapter listAdapter = new RoomAdapter(this, android.R.layout.simple_list_item_1, storer.getBuildingRooms(buildingName));
         listView = (ListView) findViewById(R.id.ListAvailableRooms);
-        listView.setAdapter(listAdapter);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -62,6 +64,17 @@ public class AvailableRooms extends AppCompatActivity {
 
 
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateData();
+    }
+
+    private void updateData() {
+        listAdapter = new RoomAdapter(this, android.R.layout.simple_list_item_1, storer.getBuildingRooms(buildingName));
+        listView.setAdapter(listAdapter);
     }
 
     public void onBackPress(View v){

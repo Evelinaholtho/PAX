@@ -33,6 +33,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evelina.pax.db.Storer;
+import com.example.evelina.pax.db.StorerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,6 +139,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Get access to db.
+        Storer storer = StorerFactory.getInstance();
+        // Fill db with data.
+        Tester.populate();
+
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();

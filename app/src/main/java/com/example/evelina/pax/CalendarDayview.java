@@ -77,6 +77,8 @@ public class CalendarDayview extends AppCompatActivity {
             }
         });
 
+        
+
         button08 = (Button) findViewById(R.id.button08);
         colorPaxButton(button08, 8);
         button08.setOnClickListener(new OnClickListener() {
@@ -105,7 +107,19 @@ public class CalendarDayview extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(LOG_TAG, "button09 pressed!");
-                makeAPax(9);
+                if(button09.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button09.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(9);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(9);
+                }
             }
         });
         button10 = (Button) findViewById(R.id.button10);
@@ -113,7 +127,19 @@ public class CalendarDayview extends AppCompatActivity {
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(10);
+                if(button10.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button10.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(10);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(10);
+                }
             }
         });
         button11 = (Button) findViewById(R.id.button11);
@@ -121,7 +147,19 @@ public class CalendarDayview extends AppCompatActivity {
         button11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(11);
+                if(button11.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button11.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(11);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(11);
+                }
             }
         });
         button12 = (Button) findViewById(R.id.button12);
@@ -129,7 +167,19 @@ public class CalendarDayview extends AppCompatActivity {
         button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(12);
+                if(button12.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button12.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(12);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(12);
+                }
             }
         });
         button13 = (Button) findViewById(R.id.button13);
@@ -137,7 +187,19 @@ public class CalendarDayview extends AppCompatActivity {
         button13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(13);
+                if(button13.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button13.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(13);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(13);
+                }
             }
         });
         button14 = (Button) findViewById(R.id.button14);
@@ -145,7 +207,19 @@ public class CalendarDayview extends AppCompatActivity {
         button14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(14);
+                if(button14.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button14.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(14);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(14);
+                }
             }
         });
         button15 = (Button) findViewById(R.id.button15);
@@ -153,7 +227,19 @@ public class CalendarDayview extends AppCompatActivity {
         button15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(15);
+                if(button15.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button15.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(15);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(15);
+                }
             }
         });
         button16 = (Button) findViewById(R.id.button16);
@@ -161,7 +247,19 @@ public class CalendarDayview extends AppCompatActivity {
         button16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeAPax(16);
+                if(button16.getText().toString().equalsIgnoreCase(TEXT_PAXAT)) {
+                    // Vad ska hända om rummet är paxat?
+                    doIfPaxed();
+
+                }
+                else if(button16.getText().toString().equalsIgnoreCase(TEXT_MITT_PAX)){
+                    // Vad ska hända om JAG paxat rummet den här tiden?
+                    cancelPax(16);
+                }
+                else {
+                    // vad ska hända om det är ledigt?
+                    makeAPax(16);
+                }
             }
         });
 
@@ -208,7 +306,7 @@ public class CalendarDayview extends AppCompatActivity {
         Log.d(LOG_TAG, "makeAPax() " + hour);
         Calendar paxTime = ((Calendar) date.clone());
         paxTime.set(Calendar.HOUR_OF_DAY, hour);
-        store.storePax(Pax.getInstance(LoginActivity.ACTIVE_USER_ID, store.getRoom(roomName).getRoomID(), paxTime));
+        Pax.getInstance(LoginActivity.ACTIVE_USER_ID, store.getRoom(roomName).getRoomID(), paxTime);
         recreate();
     }
 // tillbakaknapp

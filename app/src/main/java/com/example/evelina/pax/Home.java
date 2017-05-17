@@ -1,6 +1,7 @@
 package com.example.evelina.pax;
 
 import android.app.ActionBar;
+import android.database.DataSetObserver;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +18,14 @@ import com.example.evelina.pax.db.Storer;
 import com.example.evelina.pax.db.StorerFactory;
 import com.example.evelina.pax.domain.Pax;
 
+import java.util.List;
+
 public class Home extends AppCompatActivity {
     private static final String LOG_TAG = Home.class.getSimpleName();
     private BottomNavigationView mBottomNav;
     private ListView listView;
+    private Storer storer;
+    private ListAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +41,7 @@ public class Home extends AppCompatActivity {
 
 
         // Get access to db.
-        Storer storer = StorerFactory.getInstance();
-        // Fill db with data.
-        Tester.populate();
+        storer = StorerFactory.getInstance();
 
         // Initialize navigation bar
         mBottomNav = (BottomNavigationView) findViewById(R.id.navigation_view);
@@ -51,18 +54,23 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        listView = (ListView) findViewById(R.id.listView_myBookings);
+
+        updateData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateData();
+    }
+
+    public void updateData() {
 
         // Initialize lists with pax
-        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getPaxOfUser(LoginActivity.ACTIVE_USER_ID));
-        listView = (ListView) findViewById(R.id.listView_myBookings);
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getPaxOfUser(LoginActivity.ACTIVE_USER_ID));
         listView.setAdapter(listAdapter);
-
-        StringBuilder s = new StringBuilder("All Pax:");
-        for (Pax p : storer.getAllPax())
-            s.append("\n" + p.toString());
-        Log.d(LOG_TAG, s.toString());
-
-    }
+            }
 
     // Switches to activity that corresponds to the item on navigation bar.
     private void switchActivity(MenuItem item) {

@@ -40,5 +40,6 @@ public class ActivitySwitcher {
             activity.startActivity(intentSettings);
             break;
         }
+        activity.finish();
     }
 }
