@@ -96,12 +96,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (s1.equals("") || s2.equals("")) {
             b.setEnabled(false);
         }
-       // if (s1.contains("") & (s2.length() > 2)) { //s2.equals(4>0)
-       //    b.setEnabled(true);
-        //    b.setBackgroundDrawable(getResources().getDrawable(buttonlight));
-        //}
+       if (s1.contains("@") & (s2.length() > 2)) { //s2.equals(4>0)
+          b.setEnabled(true);
+          b.setBackgroundDrawable(getResources().getDrawable(buttonlight));
+        }
         else {
-            b.setEnabled(true);
+            b.setEnabled(false);
 
         }
     }

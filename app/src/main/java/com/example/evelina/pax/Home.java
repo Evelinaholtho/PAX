@@ -33,8 +33,6 @@ public class Home extends AppCompatActivity {
 
 
 
-
-
         // Get access to db.
         Storer storer = StorerFactory.getInstance();
         // Fill db with data.

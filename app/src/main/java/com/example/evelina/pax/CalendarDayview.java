@@ -230,9 +230,10 @@ public class CalendarDayview extends AppCompatActivity {
     }
 
 
-
     // Vad händer om jag klickar på en tid som redan är paxad av nån annan?
     private void doIfPaxed() {
+        String msg = "Rummet är redan paxat";
+        toastMsg(msg);
 
     }
 }
