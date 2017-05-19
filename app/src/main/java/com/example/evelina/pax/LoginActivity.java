@@ -57,10 +57,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private static final String USER_2_PWD = "123";
 
 
-    public static String getUserName(int userID){
-        if(userID == 1)
+    public static String getUserName(int userID) {
+        if (userID == 1)
             return USER_1;
-        else if(userID == 2)
+        else if (userID == 2)
             return USER_2;
         return "";
     }
@@ -89,7 +89,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mLoginFormView;
 
 
-    private EditText et1,et2;
+    private EditText et1, et2;
+
     void checkFieldsForEmptyValues() {
         Button b = (Button) findViewById(R.id.email_sign_in_button);
 
@@ -98,16 +99,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         if (s1.equals("") || s2.equals("")) {
             b.setEnabled(false);
+            b.setBackgroundDrawable(getResources().getDrawable(buttondark));
+
         }
-       if /* (s1.contains("") & */ (s1.length() > 2) { //s2.equals(4>0)
-          b.setEnabled(true);
-          b.setBackgroundDrawable(getResources().getDrawable(buttonlight));
-        }
-        else {
+        if /* (s1.contains("") & */ (s1.length() > 2) { //s2.equals(4>0)
+            b.setEnabled(true);
+            b.setBackgroundDrawable(getResources().getDrawable(buttonlight));
+        } else {
             b.setEnabled(false);
+            b.setBackgroundDrawable(getResources().getDrawable(buttondark));
 
         }
     }
+
 
     public void toastMsg(String msg) {
 
@@ -115,8 +119,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         toast.show();
 
     }
-
-
 
 
     private TextWatcher mTextWatcher = new TextWatcher() {
@@ -157,9 +159,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         checkFieldsForEmptyValues();
 
 
-
-
-
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -171,7 +170,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
-
 
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
@@ -235,6 +233,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
+
+
+
+
+
     private void attemptLogin() {
 
         if (mAuthTask != null) {
@@ -249,27 +252,23 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
+
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        }
-        else if (!isEmailValid(email)) {
+     if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
         }
+
+        else if (!doesEmailAndPasswordMatch(email,password)){
+         mEmailView.setError("Den angivna E-potadressen verkar inte stämma överrens med det angivna lösenordet, försök igen");
+         focusView =mLoginFormView;
+         cancel = true;
+     }
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -288,26 +287,60 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void setActiveUserID() {
-        if(ACTIVE_USER.equals(USER_1))
+        if (ACTIVE_USER.equals(USER_1))
             ACTIVE_USER_ID = 1;
-        else if(ACTIVE_USER.equals(USER_2))
+        else if (ACTIVE_USER.equals(USER_2))
             ACTIVE_USER_ID = 2;
     }
 
-    private boolean isEmailValid(String email) {
+    private boolean doesEmailAndPasswordMatch(String email, String password) {
         //TODO: Replace this with your own logic
 
-           // return email.contains("@");
+         if (email.equals(USER_1)& (password.equals(USER_1_PWD))) {
+             return true;
+         }
+      else if (email.equals(USER_2)& (password.equals(USER_2_PWD))) {
+             return true;
+
+         }
+         else {
+             return false;
+         }
+    }
+
+    private boolean isEmailValid (String email){
+
+
+        if (email.equals(USER_1)) {
             return true;
+        }
+        else if (email.equals(USER_2)) {
+            return true;
+
+        }
+        else {
+            return false;
+        }
 
     }
 
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        //return password.length() > 4;
-        return true;
+
+        if (password.equals(USER_1)) {
+            return true;
+        }
+        else if (password.equals(USER_2)) {
+            return true;
+
+        }
+        else {
+            return false;
+        }
+
     }
+
 
     /**
      * Shows the progress UI and hides the login form.
