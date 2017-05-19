@@ -53,6 +53,10 @@ public class CalendarDayview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_dayview);
+        setContentView(R.layout.activity_group);
+        getSupportActionBar().setTitle("  Boka grupprum");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_group_black_24dp);
 
         //Get data from the Map-activity on which building this activity should show.
         Bundle roomData = getIntent().getExtras();
