@@ -68,7 +68,7 @@ public class Home extends AppCompatActivity {
     public void updateData() {
 
         // Initialize lists with pax
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, storer.getPaxOfUser(LoginActivity.ACTIVE_USER_ID));
+        listAdapter = new ArrayAdapter<>(this, R.layout.simple_list_white, storer.getPaxOfUser(LoginActivity.ACTIVE_USER_ID));
         listView.setAdapter(listAdapter);
             }
 
