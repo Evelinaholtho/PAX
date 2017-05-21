@@ -266,8 +266,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         else if (!doesEmailAndPasswordMatch(email,password)){
-         mEmailView.setError("Den angivna E-potadressen verkar inte stämma överrens med det angivna lösenordet, försök igen");
-         focusView =mLoginFormView;
+         mEmailView.setError("Den angivna E-postadressen verkar inte stämma överens med det angivna lösenordet, försök igen.");
+         focusView =mEmailView;
          cancel = true;
      }
 

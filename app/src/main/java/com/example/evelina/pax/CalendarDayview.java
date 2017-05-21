@@ -53,7 +53,7 @@ public class CalendarDayview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar_dayview);
-        setContentView(R.layout.activity_group);
+
         getSupportActionBar().setTitle("  Boka grupprum");
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_group_black_24dp);
@@ -75,13 +75,13 @@ public class CalendarDayview extends AppCompatActivity {
         TextView dateText = (TextView)findViewById(R.id.date);
         dateText.setText(TimeMaker.getFormat2().format(TimeMaker.getCalendar().getTime()));
 
-        favoriteButton =(ImageButton) findViewById(R.id.imageButton);
+     /*   favoriteButton =(ImageButton) findViewById(R.id.imageButton);
         favoriteButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(LOG_TAG, "favorite button pressed!");
             }
-        });
+        }); Fyller detta ngn funktion?, vi har en lyssnare på denna knappen i xml och den fungeraar inte om man lägger till dettaa  */
 
         
 
