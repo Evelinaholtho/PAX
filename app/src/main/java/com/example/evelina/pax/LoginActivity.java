@@ -51,10 +51,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public static String ACTIVE_USER;
     public static int ACTIVE_USER_ID;
 
-    private static final String USER_1 = "UserOne";
-    private static final String USER_1_PWD = "123";
-    private static final String USER_2 = "UserTwo";
-    private static final String USER_2_PWD = "123";
+    private static final String USER_1 = "Userone@mail.com";
+    private static final String USER_1_PWD = "1234";
+    private static final String USER_2 = "Usertwo@mail.com";
+    private static final String USER_2_PWD = "5678";
 
 
     public static String getUserName(int userID) {
@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             b.setBackgroundDrawable(getResources().getDrawable(buttondark));
 
         }
-        if /* (s1.contains("") & */ (s1.length() > 2) { //s2.equals(4>0)
+        if (s1.contains("@")) {
             b.setEnabled(true);
             b.setBackgroundDrawable(getResources().getDrawable(buttonlight));
         } else {
@@ -262,6 +262,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
+
         }
 
         else if (!doesEmailAndPasswordMatch(email,password)){

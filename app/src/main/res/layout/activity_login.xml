@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_mail_outline_white_24dp"
                     android:hint="    E-post"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textCapWords|textEmailAddress"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
                     android:textColor="@color/colorWhite"
